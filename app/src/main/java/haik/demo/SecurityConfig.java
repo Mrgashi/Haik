@@ -16,13 +16,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // ===== FORTSETTER PÅ SECURITY CONFIG SENERE ============
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+            http
                 .authorizeRequests()
-                        .antMatchers("/", "/index", "/welcome").permitAll()
+                        .antMatchers("/", "/index", "/welcome","/signup").permitAll()
                         .antMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
                         .and()
-                .formLogin()
+                        .formLogin()
                         .loginPage("/login")
                         .permitAll();
 
