@@ -20,7 +20,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
             http
                 .authorizeRequests()
-                        .antMatchers("/", "/index", "/welcome","/signup").permitAll()
+                        .antMatchers("/", "/index", "/welcome","/signup","/user/**").permitAll()
                         .antMatchers("/admin").hasRole("ADMIN")
                         .anyRequest().authenticated()
                         .and()
