@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
 </head>
 <body>
-<div>
     <h1>Velkommen til Haik</h1>
-        <p id=""> Den beste måten å komme seg frem og tilbake.<br>
+        <p> Den beste måten å komme seg frem og tilbake.<br>
             Skal du ut og kjøre og har ledige seter?
             Vårt hyggelige nettverk gjør det enkelt å kjøre sammen.
             Bra for miljøet, bra for deg! <br>
         </p>
-    <form th:action="/login">
-        <p>Not a user yet?</p>
-             <input  type="button" value="Sign Up!" id="signUpButton" />
-        <p>Do you already have an account?</p>
-            <input type="button" value="Sign In!"  id="signInButton"/>
-    </form>
-</div>
+   <form th:action="/login">
+       <p>Not a user yet?</p>
+            <input  type="button" value="Sign Up!" id="signUpButton" />
+       <p>Do you already have an account?</p>
+           <input type="button" value="Sign In!"  id="signInButton"/>
+   </form>
 </body>
 <footer>
 
