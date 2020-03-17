@@ -15,11 +15,12 @@ create table User
 alter table User
     add primary key (id);
 
+
 create table ride
 (
     id int(10) auto_increment,
     created varchar(100) not null,
-    startdate datetime not null,
+    startdate date not null, /*Endret til date istedenfor datetime for å få kontakt med view - Karoline */
     seatsavailable int(2) not null,
     startlocation varchar(45) not null,
     destination varchar(100) not null,

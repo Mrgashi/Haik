@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.sql.DataSource;
@@ -16,15 +17,16 @@ public class RideController {
     RideRepository rideRepository;
 
     @GetMapping("/createride")
-    public String newRide(Model model, RideRepository rideRepository ){
-            model.addAttribute("createRide", rideRepository);
+    public String newRide(Model model){
+            model.addAttribute("createRide", new Ride());
             model.addAttribute("ride", rideRepository.findAll());
         return "createRide";
     }
 
-    @PostMapping("/createride")
-    public String createRide(Ride ride){
+    @PostMapping("/saveride")
+    public String saveRide(@ModelAttribute Ride ride){
         rideRepository.save(ride);
-        return "redirect:/user/{id}/myrides";
+        return "redirect:/welcome";
+//        return "redirect:/user/{id}/myrides"; fremtidig url ? (Karoline)
     }
 }

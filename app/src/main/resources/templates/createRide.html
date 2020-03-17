@@ -8,20 +8,20 @@
 <h1> Tilby Haik?</h1>
 
 <div class="container">
-    <form id="createRide" action="/createride" method="POST" th:object="${ride}">
+    <form id="createRide" action="/saveride" method="POST" th:object="${createRide}">
         <div id="rideDestination">
-            <div><label for="avreise">Fra <input id="avreise" type="text" name="startlocation" placeholder="Avreise" field="*{startlocation}"></label></div>
-            <div><label for="dato"> Dato <input id ="dato" type="datetime-local" placeholder="Dato MM/YY" field ="*{startdate}"></label></div>
-            <div><label for ="destinasjon"> Destinasjon <input id = "destinasjon" type="text" placeholder="Destinasjon" field="*{destination}"></label></div>
-            <div><label for ="seter"> Antall plasser  <input id = "seter" type="number" placeholder="Antall plasser" field="*{seatsavailable}"></label></div>
+            <div><label for="avreise">Fra <input id="avreise" type="text" name="startlocation" placeholder="Avreise"th:field="*{startlocation}"></label></div>
+            <div><label for="dato"> Dato <input id ="dato" type="date" placeholder="Dato" th:field ="*{startDate}"></label></div>
+            <div><label for ="destinasjon"> Destinasjon <input id = "destinasjon" type="text" placeholder="Destinasjon" th:field="*{destination}"></label></div>
+            <div><label for ="seter"> Antall plasser  <input id = "seter" type="number" placeholder="Antall plasser" th:field="*{seatsavailable}"></label></div>
         </div>
         <div>
-            <div><label for="detaljer">Detaljer <input id="detaljer" type="text" name="detaljer" placeholder="Detaljer" field="*{comment}"></label></div>
+            <div><label for="detaljer">Detaljer <input id="detaljer" type="text" name="detaljer" placeholder="Detaljer" th:field="*{comment}"></label></div>
         </div>
 
         <div>
-            <input type="button"  value="Opprett tur" href="/welcome" class="btn">
-            <input type="button"  value="Avbryt" href="/user/{id}" class="btn">
+            <input type="submit"  value="Opprett tur" th:href="'/welcome'" class="btn">
+            <a href="/">Avbryt</a>
         </div>
     </form>
 </div>
