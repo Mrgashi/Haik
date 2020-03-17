@@ -1,4 +1,4 @@
-package haik.demo;
+package haik.demo.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,14 +16,30 @@ public class User {
     private String email;
     private String password;
 
+    // private Boolean isDriver;
+
+    // ==========  Når Ride opprettes ===========
+    //@ManyToOne
+    //private Ride ride;
+
     public User() {
     }
+
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+    }
+
+    // ==== LA TIL GETTERE OG SETTERE FOR ID =======
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
