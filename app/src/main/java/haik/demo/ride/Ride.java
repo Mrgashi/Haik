@@ -1,4 +1,4 @@
-package haik.demo;
+package haik.demo.ride;
 
 
 
