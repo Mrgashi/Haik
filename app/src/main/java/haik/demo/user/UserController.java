@@ -22,7 +22,6 @@ public class UserController {
     @Autowired
     DataSource dataSource;
 
-    // ===== LA DENNE SOM AUTOWIRED ISTEDENFOR CONSTRUCTOR =======
     @Autowired
     UserRepository userRepository;
 
@@ -34,7 +33,7 @@ public class UserController {
         return "welcome";
     }
 
-    // === DISABLER DENNE IMENS JOBBING PÅ SIGNUP ====
+
     /*
     @GetMapping("/signup")
     public String signUpPage() {

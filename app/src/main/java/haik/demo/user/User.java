@@ -20,11 +20,6 @@ public class User {
     @Column(name = "phoneNumber")
     private String phone_number;
 
-    // private Boolean isDriver;
-
-    // ==========  Når Ride opprettes ===========
-    //@ManyToOne
-    //private Ride ride;
 
     public User() {
     }

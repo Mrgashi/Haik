@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SignUpController {
-// =====  LA TIL DENNE  =====
+
 
     @Autowired
     UserRepository userRepository;
