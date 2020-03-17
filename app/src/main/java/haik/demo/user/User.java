@@ -25,8 +25,13 @@ public class User {
     public User() {
     }
 
+<<<<<<< HEAD:app/src/main/java/haik/demo/user/User.java
 
     public User(String firstName, String lastName, String email, String password) {
+=======
+    public User(Long id, String firstName, String lastName, String email, String password) {
+        this.id = id;
+>>>>>>> 1fe87a4238b721d1f13a3d914d31339d62db21cc:app/src/main/java/haik/demo/User.java
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

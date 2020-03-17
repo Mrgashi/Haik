@@ -2,7 +2,15 @@ package haik.demo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD:app/src/main/java/haik/demo/user/UserController.java
 import org.springframework.web.bind.annotation.GetMapping;
+=======
+import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+>>>>>>> 1fe87a4238b721d1f13a3d914d31339d62db21cc:app/src/main/java/haik/demo/UserController.java
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -54,5 +62,15 @@ public class UserController {
     public String logIn() {
         return "login";
     }
+
+    @GetMapping("/user/{id}")
+    public String userPage(@PathVariable Long id, Model model){
+        User user= new User( 1L,"Arild", "Devold", "karo.dev@gmail.com", "test");
+        model.addAttribute("user", user);
+
+        return "userPage";
+    }
+
+
 
 }
