@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.validation.constraints.Null;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -44,5 +46,8 @@ class DemoApplicationTests {
     }
 
     @Test
-    void shouldFindByCreated() {assertEquals("01.01.2020", rideRepository.findRideByCreated("01.01.2020"));}
+    void findall() {
+        assertEquals(2, rideRepository.findById(2L).get().getId());
+    }
+
 }
