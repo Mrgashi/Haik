@@ -1,5 +1,6 @@
 package haik.demo;
 
+import haik.demo.ride.RideRepository;
 import haik.demo.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,9 @@ class DemoApplicationTests {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RideRepository rideRepository;
 
 
     @Test

@@ -1,7 +1,6 @@
 package haik.demo.ride;
 
 
-
 import javax.persistence.*;
 
 @Entity
