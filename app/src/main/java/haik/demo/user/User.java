@@ -1,4 +1,4 @@
-package haik.demo;
+package haik.demo.user;
 
 import javax.persistence.*;
 
@@ -20,6 +20,12 @@ public class User {
     @Column(name = "phoneNumber")
     private String phone_number;
 
+    // private Boolean isDriver;
+
+    // ==========  Når Ride opprettes ===========
+    //@ManyToOne
+    //private Ride ride;
+
     public User() {
     }
 
@@ -37,6 +43,15 @@ public class User {
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
+    }
+
+    // ==== LA TIL GETTERE OG SETTERE FOR ID =======
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

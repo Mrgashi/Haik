@@ -2,10 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css" />
     <title>Sign up! </title>
 </head>
 <body>
-<h1> Sign up for an account! </h1>
-  <p>POKKER DA! </p>
+<<<<<<< HEAD
+<h1> HAIK  </h1>
+
+<div class="container">
+<form id="sign_form" action="/signup" method="POST" th:object="${user}">
+    <h2>Sign Up</h2>
+    <div id="name_input">
+       <div><label for="first">Fornavn: <input id="first" type="text" name="firstname" placeholder="First Name" th:field="*{firstName}"></label></div>
+       <div><label for="last">Etternavn: <input id="last" type="text" name="lastname" placeholder="Last Name" th:field="*{lastName}"></label></div>
+       <div> <label for="email">Email:  <input type="text" id="email" placeholder="Email" th:field="*{email}" /></label></div>
+    </div>
+    <div>
+        <div><label for="password">Passord:  <input type="password" id="password" th:field="*{password}" placeholder="Passord"/></label></div>
+        <div><label>Gjenta Passord: <input type="password" name="password2" placeholder="Passord"/></label></div>
+    </div>
+
+    <div>
+        <input type="button"  value="Submit" href="/welcome" class="btn">
+        <a href="/login"><h4>Logg inn!</h4></a>
+    </div>
+</form>
+</div>
+=======
+    <h1> Sign up for an account! </h1>
+    <form method="post" th:action="'/home'">
+        Username:<input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        Confirm password: <input type="password" placeholder="confirm password">
+        <input type="submit" value="Register as a new user">
+    </form>
+>>>>>>> 1fe87a4238b721d1f13a3d914d31339d62db21cc
 </body>
+<footer>
+
+
+</footer>
 </html>
