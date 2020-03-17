@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Create new ride</title>
 </head>
 <body>
+<h1> Tilby Haik?</h1>
+
+<div class="container">
+    <form id="createRide" action="/createride" method="POST" th:object="${ride}">
+        <div id="rideDestination">
+            <div><label for="avreise">Fra <input id="avreise" type="text" name="startlocation" placeholder="Avreise" field="*{startlocation}"></label></div>
+            <div><label for="dato"> Dato <input id ="dato" type="datetime-local" placeholder="Dato MM/YY" field ="*{startdate}"></label></div>
+            <div><label for ="destinasjon"> Destinasjon <input id = "destinasjon" type="text" placeholder="Destinasjon" field="*{destination}"></label></div>
+            <div><label for ="seter"> Antall plasser  <input id = "seter" type="number" placeholder="Antall plasser" field="*{seatsavailable}"></label></div>
+        </div>
+        <div>
+            <div><label for="detaljer">Detaljer <input id="detaljer" type="text" name="detaljer" placeholder="Detaljer" field="*{comment}"></label></div>
+        </div>
+
+        <div>
+            <input type="button"  value="Opprett tur" href="/welcome" class="btn">
+            <input type="button"  value="Avbryt" href="/user/{id}" class="btn">
+        </div>
+    </form>
+</div>
+
+
 
 </body>
 </html>
