@@ -21,12 +21,22 @@ class DemoApplicationTests {
 
     @Test
     void shouldFindNull() {
-        assertEquals(0, userRepository.findByEmail("mirdon_g@hotmail.com"));
+        assertEquals(null, userRepository.findByEmail("test@test.com"));
+    }
+
+    @Test
+    void shouldFindUser() {
+        assertEquals("Mirdon", userRepository.findByEmail("mirdon_g@hotmail.com").getFirstName());
     }
 
     @Test
     void shoudFindByFirstName() {
-        assertEquals("Mirdon", userRepository.findByFirstName("Mirdon"));
+        assertEquals("Mirdon", userRepository.findByFirstName("Mirdon").getFirstName());
     }
 
+
+    @Test
+    void shouldFindUserOneById() {
+        assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
+    }
 }

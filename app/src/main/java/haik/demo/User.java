@@ -1,9 +1,6 @@
 package haik.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -11,19 +8,35 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "phoneNumber")
+    private String phone_number;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String email, String password, String phone_number) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.phone_number = phone_number;
+    }
+
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
     }
 
     public String getFirstName() {
@@ -62,9 +75,10 @@ public class User {
     public String toString() {
         return "User: " +
                 "\nId: " + id +
-                "\n First Name: " + firstName +
-                "Last Name: " + lastName +
+                "\nFirst Name: " + firstName +
+                "\nLast Name: " + lastName +
                 "\nEmail: " + email +
-                "\nPassword: " + password;
+                "\nPassword: " + password +
+                "\nPhone_number: " + phone_number;
     }
 }

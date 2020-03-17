@@ -2,14 +2,11 @@ package haik.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 
 import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -28,11 +25,12 @@ public class UserController {
         try (Connection conn = dataSource.getConnection();
             PreparedStatement ps = conn.prepareStatement("INSERT INTO User(firstname, lastname, email, password, phone_number) VALUES (?,?,?,?,?)" ))
         {
-            ps.setString(1, "Mirdon");
-            ps.setString(2, "Gashi");
-            ps.setString(3,"Mirdon_g@hotmail.com");
-            ps.setString(4, "123");
-            ps.setString(5, "12345667");
+            ps.setString(1, user.getFirstName());
+            ps.setString(2, user.getLastName());
+            ps.setString(3, user.getEmail());
+            ps.setString(4, user.getPassword());
+            ps.setString(5, user.getPhone_number());
+            ps.execute();
         }
         catch (SQLException e) {
             e.printStackTrace();
