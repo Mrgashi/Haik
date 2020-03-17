@@ -15,24 +15,19 @@ public class SignUpController {
     @Autowired
     UserRepository userRepository;
 
-    Users users;
-
-    public SignUpController(Users users){
-        this.users = users;
-    }
 
     @GetMapping("/signup")
     public String showSignupPage(Model model, @ModelAttribute User user){
-        model.addAttribute("users", users.getUsers());
+        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("tempUser", user);
         return "signup";
     }
 
     @PostMapping("/signup")
     public String registerNewUser(Model model, @ModelAttribute User user, @RequestParam String password ) {
-        users.addNewUser(user);
+        userRepository.save(user);
         model.addAttribute("tempUser", user);
-        model.addAttribute("users", users.getUsers());
+        model.addAttribute("users", userRepository.findAll());
         return "login";
     }
 

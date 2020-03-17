@@ -1,0 +1,1 @@
+INSERT INTO Haik.User (id, firstname, lastname, email, password, phone_number) VALUES (1, 'Mirdon', 'Gashi', 'mirdon_g@hotmail.com', '123', '12345678');
