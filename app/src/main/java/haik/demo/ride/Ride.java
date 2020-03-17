@@ -5,9 +5,12 @@ import javax.persistence.*;
 
 @Entity
 public class Ride {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
     @Column (name = "created")
     private String created;
     @Column (name = "startdate")
@@ -20,6 +23,22 @@ public class Ride {
     private String destination;
     @Column (name = "comment")
     private String comment;
+
+
+
+  public Ride (Long id, String created, String startDate, int seatsavailable, String startlocation, String destination, String comment){
+        this.comment = comment;
+        this.created = created;
+        this.startDate = startDate;
+        this.destination = destination;
+        this.id = id;
+        this.seatsavailable = seatsavailable;
+        this.startlocation = startlocation;
+    }
+
+    public Ride() {
+    }
+
 
     public Long getId() {
         return id;
@@ -75,5 +94,19 @@ public class Ride {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Ride{" +
+                "id=" + id +
+                ", created='" + created + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", seatsavailable=" + seatsavailable +
+                ", startlocation='" + startlocation + '\'' +
+                ", destination='" + destination + '\'' +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 }
