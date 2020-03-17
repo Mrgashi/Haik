@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RideController {
 
     @Autowired
-    RideService rideService;
+    RideRepository rideRepository;
 
     @GetMapping("/createride")
-    public String newRide(Model model, RideService rideService ){
-            model.addAttribute("createRide", rideService);
+    public String newRide(Model model, RideRepository rideRepository ){
+            model.addAttribute("createRide", rideRepository);
+            model.addAttribute("ride", rideRepository.findAll());
         return "createRide";
     }
 }

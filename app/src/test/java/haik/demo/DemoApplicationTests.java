@@ -42,4 +42,7 @@ class DemoApplicationTests {
     void shouldFindUserOneById() {
         assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
     }
+
+    @Test
+    void shouldFindByCreated() {assertEquals("01.01.2020", rideRepository.findRideByCreated("01.01.2020"));}
 }
