@@ -8,16 +8,21 @@
     <title>Log In</title>
 </head>
 <body>
-<div class="form">
-    <form method="post" id="login_form" th:action="'/login'">
-        <label>Email: <input type="text" name="email" th:placeholder="email"></label>
-        <label>Passord: <input type="password" name="password" th:placeholder="password"></label>
-        <input type="submit"  value="Logg inn!" th:href="welcome">
-    </form>
-</div>
     <div th:if="${param.error}">
-        Feil brukernavn eller passord.
+       Ugyldig brukernavn og passord.
     </div>
+
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <form th:action="@{/login}" id="login_form" method="post">
+        <div><label> Email : <input type="text" name="email"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+
+
+
 </body>
 <footer>
 

@@ -29,12 +29,12 @@ public class UserController {
     }
 
 
-    /*
+
     @GetMapping("/signup")
     public String signUpPage() {
-        return "signup";
+        return "register";
     }
-     */
+
 
 
     @GetMapping("/login")

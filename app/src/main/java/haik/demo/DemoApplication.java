@@ -20,6 +20,4 @@ public class DemoApplication {
         return "Hello World, Haik to come!";
     }
 
-
-
 }
