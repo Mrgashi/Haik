@@ -16,7 +16,9 @@ public class Ride {
     private Date created;
     @Column (name = "startdate")
     private String startDate;
-    @Column (name = "seatsavailable") // ride
+    @Column (name = "time")
+    private int time;
+    @Column (name = "seatsavailable")
     private int seatsavailable;
     @Column (name = "startlocation")
     private String startlocation;
@@ -27,13 +29,14 @@ public class Ride {
 
 
 // fjernet id fra construktur da denne opprettes i Db (Karoline)
-  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment){
+  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment, int time){
         this.comment = comment;
         this.created = new Date();
         this.startDate = startDate;
         this.destination = destination;
         this.seatsavailable = seatsavailable;
         this.startlocation = startlocation;
+        this.time = time;
     }
 
     public Ride() {
@@ -43,6 +46,12 @@ public class Ride {
     @PrePersist
     protected void onCreate() { this.created = new Date(); }
 
+
+    public int getTime() {return time;}
+
+    public void setTime(int time) {
+      this.time = time;
+    }
 
     public Long getId() {
         return id;
@@ -111,6 +120,7 @@ public class Ride {
                 ", startlocation='" + startlocation + '\'' +
                 ", destination='" + destination + '\'' +
                 ", comment='" + comment + '\'' +
+                ", time='" + time + '\'' +
                 '}';
     }
 }

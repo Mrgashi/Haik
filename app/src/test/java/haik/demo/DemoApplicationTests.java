@@ -44,9 +44,5 @@ class DemoApplicationTests {
         assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
     }
 
-    @Test
-    void findAll() {
-        assertEquals(null, rideRepository.findAll());
-    }
 
 }

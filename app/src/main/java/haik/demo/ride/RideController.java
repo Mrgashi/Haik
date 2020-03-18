@@ -38,7 +38,6 @@ public class RideController {
     @GetMapping("/rides")
     public String getRides(Model model) {
         model.addAttribute("rides", rideRepository.findAll());
-
         return "rides";
     }
 }
