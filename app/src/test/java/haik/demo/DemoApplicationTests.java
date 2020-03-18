@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.validation.constraints.Null;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -46,8 +45,8 @@ class DemoApplicationTests {
     }
 
     @Test
-    void findall() {
-        assertEquals(2, rideRepository.findById(2L).get().getId());
+    void findAll() {
+        assertEquals(null, rideRepository.findAll());
     }
 
 }

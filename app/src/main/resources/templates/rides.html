@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rides</title>
+</head>
+<body>
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(rides)}">
+            <h2>Ridealongs</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Created</th>
+                    <th>Start Date</th>
+                    <th>Seats available</th>
+                    <th>Start Location</th>
+                    <th>Destination</th>
+                    <th>Commet</th>
+                </tr>
+                <tr th:each="ride : ${rides}">
+                    <td th:text="${ride.getCreated()}"></td>
+                    <td th:text="${ride.getStartDate()}"></td>
+                    <td th:text="${ride.getSeatsavailable()}"></td>
+                    <td th:text="${ride.getStartlocation()}"></td>
+                    <td th:text="${ride.getDestination()}"></td>
+                    <td th:text="${ride.getComment()}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

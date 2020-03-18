@@ -31,4 +31,3 @@ create table ride
 
 alter table ride
     add primary key (id);
-
