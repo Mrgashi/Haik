@@ -12,21 +12,19 @@
 <h1> HAIK  </h1>
 
 <div class="container">
-<form id="sign_form" action="/register" method="POST" th:object="${user}">
+<form id="sign_form" action="/success" method="POST">
     <h2>Sign Up</h2>
     <div id="name_input">
-       <div><label for="first">Fornavn: <input id="first" type="text" name="firstname" placeholder="First Name" th:field="*{firstName}"></label></div>
-       <div><label for="last">Etternavn: <input id="last" type="text" name="lastname" placeholder="Last Name" th:field="*{lastName}"></label></div>
-       <div> <label for="email">Email:  <input type="text" id="email" placeholder="Email" th:field="*{email}" /></label></div>
-    </div>
-    <div>
-        <div><label for="password">Passord:  <input type="password" id="password" th:field="*{password}" placeholder="Passord"/></label></div>
-        <div><label>Gjenta Passord: <input type="password" name="password2" placeholder="Passord"/></label></div>
+       <div><label>Fornavn: <input id="first" type="text" name="firstname"/></label></div>
+       <div><label>Etternavn: <input id="last" type="text" name="lastname"/></label></div>
+       <div> <label>Email:  <input type="text" id="email" name="email"/></label></div>
+        <div> <label>Brukernavn:  <input type="text" id="username" name="username"/></label></div>
+        <div><label >Passord:  <input type="password" class="password" name="password"/></label></div>
+        <div><label>Gjenta Passord: <input type="password" class="password" name="password2"/></label></div>
     </div>
 
     <div>
-        <input type="button"  value="Submit" href="/welcome" class="btn">
-        <a href="/login"><h4>Logg inn!</h4></a>
+        <input type="button" value="Submit" class="btn">
     </div>
 </form>
 </div>
