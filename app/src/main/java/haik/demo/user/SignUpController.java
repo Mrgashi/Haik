@@ -16,19 +16,19 @@ public class SignUpController {
     UserRepository userRepository;
 
 
-    @GetMapping("/signup")
+    @GetMapping("/register")
     public String showSignupPage(Model model, @ModelAttribute User user){
         model.addAttribute("users", userRepository.findAll());
         model.addAttribute("tempUser", user);
-        return "signup";
+        return "register";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/register")
     public String registerNewUser(Model model, @ModelAttribute User user, @RequestParam String password ) {
         userRepository.save(user);
         model.addAttribute("tempUser", user);
         model.addAttribute("users", userRepository.findAll());
-        return "login";
+        return "register";
     }
 
 }

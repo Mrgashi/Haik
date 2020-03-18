@@ -40,7 +40,7 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    // ==== LA TIL GETTERE OG SETTERE FOR ID =======
+
     public Long getId() {
         return id;
     }
