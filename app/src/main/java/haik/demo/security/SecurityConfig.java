@@ -15,17 +15,15 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
+    // =====  SECURITY CONFIG  ============
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-
-                .antMatchers("/", "/profile", "/welcome", "/signup", "/createride", "/saveride", "/rides").permitAll()
-
-                .antMatchers("/", "/profile", "/welcome", "/register", "/login", "/userPage", "/createride", "/saveride").permitAll()
-
+                .antMatchers("/**", "/profile", "/welcome", "/signup", "/createride", "/saveride", "/user**", "/rides").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
