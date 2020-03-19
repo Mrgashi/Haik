@@ -9,6 +9,7 @@ public class Ride {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ride_id")
     private Long id;
 
 

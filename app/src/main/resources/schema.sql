@@ -4,8 +4,8 @@ create table User
 (
     id int(10) auto_increment,
     firstname varchar(100) not null,
-    starttime time not null,
     lastname varchar(100) not null,
+    starttime time not null,
     email varchar(100) not null,
     password varchar(100) not null,
     phone_number varchar(100) not null,
