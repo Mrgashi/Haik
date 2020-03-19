@@ -31,7 +31,6 @@ public class UserController {
 
     @GetMapping("/register")
     public String showSignupPage(Model model, @ModelAttribute User user){
-        model.addAttribute("user", userRepository.findAll());
         return "register";
     }
 
@@ -108,7 +107,4 @@ public class UserController {
         return "/rides";
         // return "redirect:/user/{id}/rides"; fremtidig url
     }
-
-
-
 }

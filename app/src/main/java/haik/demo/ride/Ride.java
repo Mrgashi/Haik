@@ -2,6 +2,7 @@ package haik.demo.ride;
 
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -17,8 +18,8 @@ public class Ride {
     private Date created;
     @Column (name = "startdate")
     private String startDate;
-//    @Column (name = "starttime")
-//    private int starttime;
+    @Column (name = "starttime")
+    private String starttime;
     @Column (name = "seatsavailable")
     private int seatsavailable;
     @Column (name = "startlocation")
@@ -30,14 +31,14 @@ public class Ride {
 
 
 // fjernet id fra construktur da denne opprettes i Db (Karoline)
-  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment){
+  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment, String starttime){
         this.comment = comment;
         this.created = new Date();
         this.startDate = startDate;
         this.destination = destination;
         this.seatsavailable = seatsavailable;
         this.startlocation = startlocation;
-//        this.starttime = time;
+        this.starttime = starttime;
     }
 
     public Ride() {
@@ -48,11 +49,11 @@ public class Ride {
     protected void onCreate() { this.created = new Date(); }
 
 
-//    public int getTime() {return starttime;}
-//
-//    public void setTime(int time) {
-//      this.starttime = time;
-//    }
+    public String getTime() {return starttime;}
+
+    public void setTime(String starttime) {
+      this.starttime = starttime;
+    }
 
     public Long getId() {
         return id;
