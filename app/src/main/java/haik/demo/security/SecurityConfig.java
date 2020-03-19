@@ -36,9 +36,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
+    // byttes til Bcrypt når signup er klar
     @Bean
     public PasswordEncoder encoder(){
-        return new BCryptPasswordEncoder(11);
+        return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
+
     }
 
     @Override

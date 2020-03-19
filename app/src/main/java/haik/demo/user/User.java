@@ -1,5 +1,4 @@
 package haik.demo.user;
-
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +22,7 @@ public class User {
 
     public User() {
     }
+
 
     public User(String firstName, String lastName, String email, String password, String phone_number) {
         this.firstName = firstName;
