@@ -47,38 +47,32 @@ public class UserController {
         return "login";
     }
 
+    @PostMapping("/postlogin")
+    public String postLogIn(String email) {
+        User user = userRepository.findByEmail(email);
+        Long userId = user.getId();
+        return "redirect:/choosestatus/" + userId;
+    }
 
-//    @GetMapping("/success")
-//    public String createUser(Model model){
-//        model.addAttribute("createUser", new User());
-//        model.addAttribute("user", userRepository.findAll());
-//        return "createUser";
-//    }
-//
-//    @PostMapping("/saveuser")
-//    public String saveUser(@ModelAttribute User user){
-//        user.setPassword(encoder.encode(user.getPassword()));
-//        userRepository.save(user);
-//        return "redirect:/success";
-//    }
 
 
     //knyttes opp brukerside?
     @GetMapping("/user/{id}")
     public User user(@PathVariable Long id) {
         return userRepository.findById(id).get();
+
     }
 
-    // Denne er
+
     @PostMapping("/user")
     public User create(@RequestBody User user){
         return userRepository.save(user);
     }
 
     //("/user/{id}/choosestatus") - legg inn når logn inn er klar
-    @GetMapping("/choosestatus")
-    public String chooseStatus(Model model) {
-        Long id = 1L;
+    @GetMapping("/choosestatus/{id}")
+    public String chooseStatus(@PathVariable Long id, Model model ) {
+
         model.addAttribute("user", userRepository.findById(id).get());
 
         return "chooseStatus";
