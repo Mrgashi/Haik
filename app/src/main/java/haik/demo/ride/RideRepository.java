@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RideRepository extends CrudRepository<Ride, Long> {
+    
+
 
 }

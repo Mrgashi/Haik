@@ -12,18 +12,20 @@
 <h1> HAIK  </h1>
 
 <div class="container">
-<form id="sign_form" th:action="'/register'" method="POST" th:object="${user}">
+<form id="form_register" th:action="'/register/sucsessful'" method="POST" th:object="${user}">
     <h2>Sign Up</h2>
     <div id="name_input">
        <div><label>Fornavn: <input id="first" type="text" name="firstname" th:field="*{firstName}"/></label></div>
        <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}"/></label></div>
        <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}"/></label></div>
+        <div> <label>Mobil:  <input type="text" id="phone" name="mobile" th:field="*{phone_number}"/></label></div>
+
         <div><label >Passord:  <input type="password" class="password" name="password" th:field="*{password}"/></label></div>
 
     </div>
 
     <div>
-        <input type="button" value="Submit" class="btn"/>
+        <input type="submit" value="Submit" class="btn"/>
     </div>
 </form>
 </div>

@@ -30,16 +30,16 @@ public class UserController {
 
 
     @GetMapping("/register")
-    public String showSignupPage(Model model, @ModelAttribute User user){
+    public String showSignupPage(Model model){
+        model.addAttribute("user", new User());
         return "register";
     }
 
-    @PostMapping("/register")
-    public String registerNewUser(Model model, @ModelAttribute User user, @RequestParam String password ) {
+    @PostMapping("/register/sucsessful")
+    public String registerNewUser( @ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
-        model.addAttribute("user", userRepository.findAll());
-        return "login"; // skal rett til login men må kobles til databasen
+        return "redirect:/login"; // skal rett til login men må kobles til databasen
     }
 
     @GetMapping("/login")
