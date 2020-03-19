@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "user_ride")
 public class Ride {
 
     @Id
@@ -16,8 +17,8 @@ public class Ride {
     private Date created;
     @Column (name = "startdate")
     private String startDate;
-    @Column (name = "time")
-    private int time;
+    @Column (name = "starttime")
+    private int starttime;
     @Column (name = "seatsavailable")
     private int seatsavailable;
     @Column (name = "startlocation")
@@ -29,14 +30,14 @@ public class Ride {
 
 
 // fjernet id fra construktur da denne opprettes i Db (Karoline)
-  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment, int time){
+  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment, int starttime){
         this.comment = comment;
         this.created = new Date();
         this.startDate = startDate;
         this.destination = destination;
         this.seatsavailable = seatsavailable;
         this.startlocation = startlocation;
-        this.time = time;
+        this.starttime = starttime;
     }
 
     public Ride() {
@@ -47,10 +48,10 @@ public class Ride {
     protected void onCreate() { this.created = new Date(); }
 
 
-    public int getTime() {return time;}
+    public int getStarttime() {return starttime;}
 
-    public void setTime(int time) {
-      this.time = time;
+    public void setStarttime(int starttime) {
+      this.starttime = starttime;
     }
 
     public Long getId() {
@@ -120,7 +121,7 @@ public class Ride {
                 ", startlocation='" + startlocation + '\'' +
                 ", destination='" + destination + '\'' +
                 ", comment='" + comment + '\'' +
-                ", time='" + time + '\'' +
+                ", time='" + starttime + '\'' +
                 '}';
     }
 }

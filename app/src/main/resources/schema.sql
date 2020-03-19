@@ -4,6 +4,7 @@ create table User
 (
     id int(10) auto_increment,
     firstname varchar(100) not null,
+    starttime time not null,
     lastname varchar(100) not null,
     email varchar(100) not null,
     password varchar(100) not null,
@@ -15,13 +16,12 @@ create table User
 alter table User
     add primary key (id);
 
-
 create table ride
 (
     id int(10) auto_increment,
     created varchar(100) not null,
     startdate date not null,
-     time time not null , /*Endret til date istedenfor datetime for å få kontakt med view - Karoline */
+    starttime time not null , /*Endret til date istedenfor datetime for å få kontakt med view - Karoline */
     seatsavailable int(2) not null,
     startlocation varchar(45) not null,
     destination varchar(100) not null,
@@ -35,7 +35,7 @@ alter table ride
 
 
 CREATE TABLE `user_ride` (
-                             `user_ride_id` int(10) NOT NULL,
+                             `user_ride_id` int(10) AUTO_INCREMENT NOT NULL,
                              `user_id` int(10) NOT NULL,
                              `ride_id` int(10) DEFAULT NULL,
                              PRIMARY KEY (`user_ride_id`),
