@@ -44,11 +44,11 @@ public class RideController {
 
 //    //    /user/{id}/myrides - fremtidig url
 //    //   må legges inn korrekt JPA-spørring for å hente ut egne turer når db er klar
-//    @GetMapping("/myrides")
-//    public String showMyRides(Model model) {
-//        model.addAttribute("myrides", rideRepository.findAll());
-//
-//        return "myRides";
-//    }
+    @GetMapping("/myrides")
+    public String showMyRides(Model model) {
+        model.addAttribute("myrides", rideRepository.findAll());
+
+        return "myrides";
+    }
 
 }
