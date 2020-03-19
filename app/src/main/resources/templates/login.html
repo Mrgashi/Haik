@@ -9,20 +9,17 @@
 </head>
 <body>
     <div th:if="${param.error}">
-       Ugyldig brukernavn og passord.
+       Ugyldig brukernavn og/eller passord.
     </div>
 
     <div th:if="${param.logout}">
         You have been logged out.
     </div>
-    <form th:action="@{/login}" id="login_form" method="post">
-        <div><label> Email : <input type="text" name="email"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
+    <form th:action="@{/chooseStatus}" id="login_form" method="post">
+        <div><label> Brukernavn : <input type="email" name="email"/> </label></div>
+        <div><label> Passord: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Logg inn"/></div>
     </form>
-
-
-
 </body>
 <footer>
 
