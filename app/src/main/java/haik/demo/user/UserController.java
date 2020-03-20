@@ -54,6 +54,7 @@ public class UserController {
         return "redirect:/chooseStatus/" + userId;
     }
 
+
     //knyttes opp brukerside?
     @GetMapping("/user/{id}")
     public User user(@PathVariable Long id) {

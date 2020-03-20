@@ -8,8 +8,6 @@ import java.util.List;
 @Entity
 public class User {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
@@ -29,10 +27,8 @@ public class User {
     @Column(name = "phoneNumber")
     private String phone_number;
 
-
     public User() {
     }
-
 
     public User(String firstName, String lastName, String email, String password, String phone_number) {
         this.firstName = firstName;
