@@ -1,11 +1,16 @@
 package haik.demo;
 
+import haik.demo.ride.Ride;
 import haik.demo.ride.RideRepository;
+import haik.demo.user.User;
 import haik.demo.user.UserRepository;
+import haik.demo.userride.UserRide;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -45,4 +50,16 @@ class DemoApplicationTests {
     }
 
 
+    @Test
+    void getUserRides() {
+        User user = userRepository.findById(1L).get();
+        List<UserRide> userRides = user.getUserRides();
+        assertEquals(0 , userRides.size());
+    }
+
+    @Test
+    void getAvailableSeats () {
+        List<Ride> ride = (List<Ride>) rideRepository.findAllBySeatsavailable(5);
+        assertEquals("Ullevål Hageby", ride.get(0).getStartlocation());
+    }
 }

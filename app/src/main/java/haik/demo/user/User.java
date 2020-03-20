@@ -1,5 +1,9 @@
 package haik.demo.user;
+import haik.demo.userride.UserRide;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -8,7 +12,11 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private Long id;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    List<UserRide> userRides = new ArrayList<>();
 
     @Column(name = "firstname")
     private String firstName;
@@ -32,6 +40,14 @@ public class User {
         this.email = email;
         this.password = password;
         this.phone_number = phone_number;
+    }
+
+    public List<UserRide> getUserRides() {
+        return userRides;
+    }
+
+    public void setUserRides(List<UserRide> userRides) {
+        this.userRides = userRides;
     }
 
     public String getPhone_number() {
