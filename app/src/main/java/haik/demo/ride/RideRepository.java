@@ -9,6 +9,8 @@ public interface RideRepository extends CrudRepository<Ride, Long> {
 
     Iterable<Ride> findAllByCreatedbyid(Long id);
 
+    Iterable<Ride> findAllBySeatsavailable(int seats);
+
 
 
 }
