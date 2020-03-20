@@ -36,12 +36,10 @@ alter table ride
 
 
 CREATE TABLE `user_ride` (
-                             `user_ride_id` int(10) NOT NULL,
                              `user_id` int(10) NOT NULL,
                              `ride_id` int(10) DEFAULT NULL,
-                             PRIMARY KEY (`user_ride_id`),
                              KEY `user_id_idx` (`user_id`),
                              KEY `ride_id_idx` (`ride_id`),
-                             CONSTRAINT `ride_id` FOREIGN KEY (`ride_id`) REFERENCES `ride` (`ride_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                             CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+                             CONSTRAINT `ride_id` FOREIGN KEY (`ride_id`) REFERENCES `ride` (`ride_id`),
+                             CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

@@ -1,11 +1,14 @@
 package haik.demo;
 
 import haik.demo.ride.RideRepository;
+import haik.demo.user.User;
 import haik.demo.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -44,5 +47,12 @@ class DemoApplicationTests {
         assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
     }
 
+
+    @Test
+    void getUserRides() {
+        User user = userRepository.findById(1L).get();
+        List<UserRide> userRides = user.getUserRides();
+        assertEquals(1 , userRides.size());
+    }
 
 }
