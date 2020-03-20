@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,7 +23,6 @@ class DemoApplicationTests {
 
     @Autowired
     private RideRepository rideRepository;
-
 
     @Test
     void contextLoads() {
@@ -43,12 +43,10 @@ class DemoApplicationTests {
         assertEquals("Mirdon", userRepository.findByFirstName("Mirdon").getFirstName());
     }
 
-
     @Test
     void shouldFindUserOneById() {
-        assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
+        assertEquals("Ola", userRepository.findById(1L).get().getFirstName());
     }
-
 
     @Test
     void getUserRides() {

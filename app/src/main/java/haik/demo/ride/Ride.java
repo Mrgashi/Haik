@@ -19,7 +19,7 @@ public class Ride {
 
     @Temporal(DATE)
     @Column (name = "created")
-    private Date created;
+    private Date created = new Date();
 
 
     @Column (name="createdbyid") // må denne annoteres som foreign key

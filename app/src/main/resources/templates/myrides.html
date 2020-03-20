@@ -16,7 +16,7 @@
                 <th>Seats available</th>
                 <th>Start Location</th>
                 <th>Destination</th>
-                <th>Commet</th>
+                <th>Comments</th>
             </tr>
             <tr th:each="ride : ${myrides}">
                 <td th:text="${ride.getCreated()}"></td>
@@ -24,7 +24,7 @@
                 <td th:text="${ride.getSeatsavailable()}"></td>
                 <td th:text="${ride.getStartlocation()}"></td>
                 <td th:text="${ride.getDestination()}"></td>
-                <td th:text="${ride.getComment()}"></td>
+                <td th:text="${ride.getComments()}"></td>
             </tr>
         </table>
     </div>

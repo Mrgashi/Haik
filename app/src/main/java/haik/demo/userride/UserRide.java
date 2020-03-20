@@ -4,6 +4,7 @@ import haik.demo.ride.Ride;
 import haik.demo.user.User;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
