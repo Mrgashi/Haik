@@ -24,7 +24,6 @@ public class RideController {
     @GetMapping("/createride")
     public String newRide(Model model) {
         model.addAttribute("createRide", new Ride());
-        model.addAttribute("ride", rideRepository.findAll());
         return "createRide";
     }
 
