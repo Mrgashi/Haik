@@ -1,36 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./style.css" />
-    <title>Sign up! </title>
+    <link rel="stylesheet" href="../static/style.css"/>
+    <title>Haik || Register</title>
 </head>
 <body>
-
-<h1> HAIK  </h1>
-
-<div class="container">
-<form id="sign_form" th:action="'/register'" method="POST" th:object="${user}">
-    <h2>Sign Up</h2>
-    <div id="name_input">
-       <div><label>Fornavn: <input id="first" type="text" name="firstname" th:field="*{firstName}"/></label></div>
-       <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}"/></label></div>
-       <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}"/></label></div>
-        <div><label >Passord:  <input type="password" class="password" name="password" th:field="*{password}"/></label></div>
-
-    </div>
-
-    <div>
-        <input type="button" value="Submit" class="btn"/>
-    </div>
-</form>
+<div>
+    <h1>Haik</h1>
 </div>
-
+<div class="container">
+    <form id="my-form" th:action="'/register'" method="POST" th:object="${user}">
+        <h2>Sign up</h2>
+        <div class="name_input">
+            <div><label>Fornavn: <input id="first" type="text" name="firstname" th:field="*{firstName}" placeholder="fornavn"/></label></div>
+            <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}" placeholder="etternavn"/></label></div>
+            <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}" placeholder="ola@normann.no"/></label></div>
+            <div><label >Passord:  <input type="password" class="password" name="password" th:field="*{password}" placeholder="*****"/></label></div>
+        </div>
+        <div>
+            <input type="button" value="Registrer" class="btn" id="register-btn"/>
+        </div>
+    </form>
+</div>
 </body>
-<footer>
-
-
-</footer>
 </html>
