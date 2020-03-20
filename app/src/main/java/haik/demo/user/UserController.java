@@ -32,7 +32,7 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register/successful")
     public String registerNewUser( @ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -44,7 +44,7 @@ public class UserController {
         return "login";
     }
 
-//    Oppretter http-session for å lagre innlogget bruker
+    //    Oppretter http-session for å lagre innlogget bruker
     @PostMapping("/postlogin")
     public String postLogIn(String email, HttpSession session) {
         User user = userRepository.findByEmail(email);

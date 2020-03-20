@@ -12,11 +12,8 @@
 <div class="container">
     <h2>Mine turer </h2>
 
-    <span th:if="${#lists.isEmpty(myrides)}">
-        <h3>Du har ingen registrte turer </h3>
-    </span>
-
-    <div th:unless="${not #lists.isEmpty(myrides)}">
+    
+    <div th:if="${not #lists.isEmpty(myrides)}">
         <table class="table table-striped">
             <tr>
                 <th>Opprettet av bruker</th>
@@ -38,7 +35,9 @@
             </tr>
         </table>
     </div>
+    <a href="/rides" class="btn">Se alle tilgjengelige turer</a>
 </div>
+
 
 </body>
 </html>
