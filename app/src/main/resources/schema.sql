@@ -18,30 +18,30 @@ alter table User
 
 create table ride
 (
-    id int(10) auto_increment,
+    id int(10) auto_increment unique,
     created varchar(100) not null,
-    startdate date not null,
-#     date date not null , /*Endret til date istedenfor datetime for å få kontakt med view - Karoline */
+    createdbyid int(10) not null,
+    startdate varchar(20) not null,
+    starttime varchar(8) not null,
     seatsavailable int(2) not null,
     startlocation varchar(45) not null,
     destination varchar(100) not null,
-    comment varchar(255) null,
-    constraint user_id_ride_UNIQUE
-        unique (id)
+    comments varchar(255),
+
+    primary key (id),
+    constraint FK_ride_user FOREIGN KEY (createdById) REFERENCES user(id)
 );
 
 
-alter table ride
-    add primary key (id);
 
 
-CREATE TABLE `user_ride` (
-                             `user_ride_id` int(10) NOT NULL,
-                             `user_id` int(10) NOT NULL,
-                             `ride_id` int(10) DEFAULT NULL,
-                             PRIMARY KEY (`user_ride_id`),
-                             KEY `user_id_idx` (`user_id`),
-                             KEY `ride_id_idx` (`ride_id`),
-                             CONSTRAINT `ride_id` FOREIGN KEY (`ride_id`) REFERENCES `ride` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-                             CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+# CREATE TABLE `user_ride` (
+#                              `user_ride_id` int(10) NOT NULL,
+#                              `user_id` int(10) NOT NULL,
+#                              `ride_id` int(10) DEFAULT NULL,
+#                              PRIMARY KEY (`user_ride_id`),
+#                              KEY `user_id_idx` (`user_id`),
+#                              KEY `ride_id_idx` (`ride_id`),
+#                              CONSTRAINT `ride_id` FOREIGN KEY (`ride_id`) REFERENCES `ride` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+#                              CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+# ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
