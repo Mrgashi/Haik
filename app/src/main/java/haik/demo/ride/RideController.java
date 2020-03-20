@@ -1,13 +1,16 @@
 package haik.demo.ride;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import javax.servlet.http.HttpSession;
+
 import javax.sql.DataSource;
+import java.util.Collections;
 
 
 @Controller
@@ -25,13 +28,10 @@ public class RideController {
         return "createRide";
     }
 
-//    lagrer createdById i httpsession for å huske hvem som er innlogget
     @PostMapping("/saveride")
-    public String saveRide(@ModelAttribute Ride ride, HttpSession session) {
-        Long userId = (Long)session.getAttribute("userId");
-        ride.setCreatedbyid(userId);
+    public String saveRide(@ModelAttribute Ride ride) {
         rideRepository.save(ride);
-        return "redirect:/myrides";
+        return "redirect:/welcome";
 //        return "redirect:/user/{id}/myrides"; fremtidig url ? (Karoline)
     }
 
@@ -42,12 +42,11 @@ public class RideController {
         return "rides";
     }
 
-//    viser liste over turer knyttet til en enkelt bruker vha. http-session
+//    //    /user/{id}/myrides - fremtidig url
+//    //   må legges inn korrekt JPA-spørring for å hente ut egne turer når db er klar
     @GetMapping("/myrides")
-    public String showMyRides(Model model, HttpSession session) {
-        Long userId = (Long)session.getAttribute("userId");
-        Iterable<Ride> myRidesList = rideRepository.findAllByCreatedbyid(userId);
-        model.addAttribute("myrides", myRidesList);
+    public String showMyRides(Model model) {
+        model.addAttribute("myrides", rideRepository.findAll());
 
         return "myrides";
     }

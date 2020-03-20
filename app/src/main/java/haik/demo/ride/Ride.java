@@ -1,13 +1,8 @@
 package haik.demo.ride;
 
 
-import haik.demo.user.User;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.util.Date;
-
-import static javax.persistence.TemporalType.DATE;
 
 @Entity
 public class Ride {
@@ -16,56 +11,54 @@ public class Ride {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Temporal(DATE)
     @Column (name = "created")
     private Date created;
-
-
-    @Column (name="createdbyid") // må denne annoteres som foreign key
-    private Long createdbyid;
-
     @Column (name = "startdate")
     private String startDate;
-
-   @Column (name = "starttime")
-   private String starttime;
-
+//    @Column (name = "starttime")
+//    private int starttime;
     @Column (name = "seatsavailable")
     private int seatsavailable;
-
     @Column (name = "startlocation")
     private String startlocation;
-
     @Column (name = "destination")
     private String destination;
-
-    @Column (name = "comments")
-    private String comments;
+    @Column (name = "comment")
+    private String comment;
 
 
 // fjernet id fra construktur da denne opprettes i Db (Karoline)
-//  public Ride (Long createdbyid, String startDate, Date starttime,  int seatsavailable, String startlocation, String destination, String comments){
-////      this.created = new Date();
-//      this.createdbyid = createdbyid;
-//      this.startDate = startDate;
-//      this.starttime = starttime;
-//      this.seatsavailable = seatsavailable;
-//      this.startlocation = startlocation;
-//      this.destination = destination;
-//      this.comments = comments;
-//
-//    }
+  public Ride (String startDate, int seatsavailable, String startlocation, String destination, String comment){
+        this.comment = comment;
+        this.created = new Date();
+        this.startDate = startDate;
+        this.destination = destination;
+        this.seatsavailable = seatsavailable;
+        this.startlocation = startlocation;
+//        this.starttime = time;
+    }
 
     public Ride() {
     }
 
     // sett created dato til nå
     @PrePersist
-    protected void onCreate() {
-      this.created = new Date();
-  }
+    protected void onCreate() { this.created = new Date(); }
 
 
+//    public int getTime() {return starttime;}
+//
+//    public void setTime(int time) {
+//      this.starttime = time;
+//    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Date getCreated() {
         return created;
@@ -75,28 +68,12 @@ public class Ride {
         this.created = created;
     }
 
-    public Long getCreatedbyid() {
-        return createdbyid;
-    }
-
-    public void setCreatedbyid(Long createdbyid) {
-        this.createdbyid = createdbyid;
-    }
-
     public String getStartDate() {
         return startDate;
     }
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
-    }
-
-    public String getStarttime() {
-        return starttime;
-    }
-
-    public void setStarttime(String starttime) {
-        this.starttime = starttime;
     }
 
     public int getSeatsavailable() {
@@ -123,26 +100,26 @@ public class Ride {
         this.destination = destination;
     }
 
-    public String getComments() {
-        return comments;
+    public String getComment() {
+        return comment;
     }
 
-    public void setComments(String comments) {
-        this.comments = comments;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
+
 
     @Override
     public String toString() {
         return "Ride{" +
                 "id=" + id +
-                ", created=" + created +
-                ", createdbyid=" + createdbyid +
-                ", startDate=" + startDate +
-                ", starttime=" + starttime +
+                ", created='" + created + '\'' +
+                ", startDate='" + startDate + '\'' +
                 ", seatsavailable=" + seatsavailable +
                 ", startlocation='" + startlocation + '\'' +
                 ", destination='" + destination + '\'' +
-                ", comments='" + comments + '\'' +
+                ", comment='" + comment + '\'' +
+//                ", time='" + starttime + '\'' +
                 '}';
     }
 }

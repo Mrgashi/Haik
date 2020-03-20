@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**", "/profile", "/welcome", "/signup", "/createride", "/saveride", "/user**", "/rides").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/postlogin", true)
+                .formLogin().defaultSuccessUrl("/choosestatus", true)
                 .loginPage("/login")
                 .usernameParameter("email")
                 .permitAll();
