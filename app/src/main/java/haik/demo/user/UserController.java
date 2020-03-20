@@ -51,7 +51,7 @@ public class UserController {
         Long userId = user.getId();
         session.setAttribute("userId", userId);
 
-        return "redirect:/chooseStatus/" + userId;
+        return "redirect:/choosestatus/" + userId;
     }
 
 
