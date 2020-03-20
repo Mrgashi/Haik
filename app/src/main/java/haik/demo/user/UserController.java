@@ -1,15 +1,12 @@
 package haik.demo.user;
 
-import haik.demo.ride.Ride;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -47,14 +44,15 @@ public class UserController {
         return "login";
     }
 
+//    Oppretter http-session for å lagre innlogget bruker
     @PostMapping("/postlogin")
-    public String postLogIn(String email) {
+    public String postLogIn(String email, HttpSession session) {
         User user = userRepository.findByEmail(email);
         Long userId = user.getId();
+        session.setAttribute("userId", userId);
+
         return "redirect:/choosestatus/" + userId;
     }
-
-
 
     //knyttes opp brukerside?
     @GetMapping("/user/{id}")
@@ -63,13 +61,11 @@ public class UserController {
 
     }
 
-
     @PostMapping("/user")
     public User create(@RequestBody User user){
         return userRepository.save(user);
     }
 
-    //("/user/{id}/choosestatus") - legg inn når logn inn er klar
     @GetMapping("/choosestatus/{id}")
     public String chooseStatus(@PathVariable Long id, Model model ) {
 
@@ -83,7 +79,6 @@ public class UserController {
     @PostMapping("/user/{id}/driver")
     public String choseDriver(@PathVariable Long id, User user) {
         // Boolean isDriver = true; kobles opp mot user_ride
-        //  .hasRole = driver;  ref. security config, gir tilgang til sidene kun driver har tilgang til
         //userRide.save(user); lagre tilstanden til user i user_ride- databasen
 
         return "/createRide";
@@ -95,7 +90,6 @@ public class UserController {
     @PostMapping("/user/{id}/passenger")
     public String chosePassenger(@PathVariable Long id, User user) {
         // Boolean isDriver = false; kobles opp mot user_ride
-        //  .hasRole = passenger; ref. security config, gir tilgang til sidene kun driver har tilgang til
         //userRide.save(user); lagre tilstanden til user i user_ride- databasen
 
         return "/rides";
