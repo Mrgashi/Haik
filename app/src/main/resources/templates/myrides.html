@@ -7,20 +7,27 @@
 <body>
 
 <div class="container">
-    <div th:if="${myrides!=null and ! myrides.isEmpty()}">
-        <h2>Ridealongs</h2>
+    <h2>Mine turer </h2>
+
+    <span th:if="${#lists.isEmpty(myrides)}">
+        <h3>Du har ingen registrte turer </h3>
+    </span>
+
+    <div th:unless="${not #lists.isEmpty(myrides)}">
         <table class="table table-striped">
             <tr>
-                <th>Created</th>
-                <th>Start Date</th>
-                <th>Seats available</th>
-                <th>Start Location</th>
-                <th>Destination</th>
-                <th>Comments</th>
+                <th>Opprettet av bruker</th>
+                <th>Dato</th>
+                <th>Avreisetid</th>
+                <th>Ledige seter</th>
+                <th>Møteplass</th>
+                <th>Destinasjon</th>
+                <th>Beskrivelse</th>
             </tr>
             <tr th:each="ride : ${myrides}">
-                <td th:text="${ride.getCreated()}"></td>
+                <td th:text="${ride.getCreatedbyid()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
+                <td th:text="${ride.getStarttime()}"></td>
                 <td th:text="${ride.getSeatsavailable()}"></td>
                 <td th:text="${ride.getStartlocation()}"></td>
                 <td th:text="${ride.getDestination()}"></td>
