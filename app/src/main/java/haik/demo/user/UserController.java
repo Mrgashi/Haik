@@ -32,7 +32,7 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/register/sucsessful")
+    @PostMapping("/register")
     public String registerNewUser( @ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -51,7 +51,7 @@ public class UserController {
         Long userId = user.getId();
         session.setAttribute("userId", userId);
 
-        return "redirect:/choosestatus/" + userId;
+        return "redirect:/chooseStatus/" + userId;
     }
 
     //knyttes opp brukerside?
