@@ -5,6 +5,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -44,16 +48,16 @@ public class UserController {
         return "login";
     }
 
-    //    Oppretter http-session for å lagre innlogget bruker
     @PostMapping("/postlogin")
-    public String postLogIn(String email, HttpSession session) {
+    public String postLogIn(String email, HttpServletResponse response) {
         User user = userRepository.findByEmail(email);
         Long userId = user.getId();
-        session.setAttribute("userId", userId);
+        Cookie cookie = new Cookie("userId", userId+"");
+        //add cookie to response
+        response.addCookie(cookie);
 
         return "redirect:/choosestatus/" + userId;
     }
-
 
     //knyttes opp brukerside?
     @GetMapping("/user/{id}")

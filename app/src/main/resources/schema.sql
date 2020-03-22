@@ -32,6 +32,9 @@ CREATE TABLE user_ride
 (
     user_ride_id int(10) NOT NULL,
     user_id int(10) NOT NULL,
-    ride_id int(10) DEFAULT NULL,
+    ride_id int(10) Default NULL,
   PRIMARY KEY (`user_ride_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+insert into user_ride (user_id, ride_id)
+values()
