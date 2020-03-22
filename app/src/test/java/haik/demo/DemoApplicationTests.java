@@ -45,7 +45,7 @@ class DemoApplicationTests {
 
     @Test
     void shouldFindUserOneById() {
-        assertEquals("Ola", userRepository.findById(1L).get().getFirstName());
+        assertEquals("Karoline", userRepository.findById(1L).get().getFirstName());
     }
 
     @Test

@@ -71,10 +71,9 @@ public class UserController {
         return userRepository.save(user);
     }
 
-    @GetMapping("/choosestatus/{id}")
-    public String chooseStatus(@PathVariable Long id, Model model ) {
-
-        model.addAttribute("user", userRepository.findById(id).get());
+    @GetMapping("/choosestatus")
+    public String chooseStatus(Model model ) {
+        model.addAttribute("user", userRepository.findById(10L).get());
 
         return "chooseStatus";
     }
