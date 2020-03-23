@@ -1,6 +1,4 @@
 package haik.demo.ride;
-
-
 import haik.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,13 +34,13 @@ public class RideController {
         ride.setCreatedbyid(userId);
         rideRepository.save(ride);
         return "redirect:/myrides";
-//        return "redirect:/user/{id}/myrides"; fremtidig url ? (Karoline)
     }
 
     @GetMapping("/rides")
     public String getRides(Model model) {
-        model.addAttribute("rides", rideRepository.findAll());
-        model.addAttribute("users", userRepository.findAll());
+        Iterable<Ride> allRides = rideRepository.findAll();
+        model.addAttribute("rides", allRides);
+//        model.addAttribute("users", userRepository.findAll());
         return "rides" ;
     }
 
@@ -52,6 +50,7 @@ public class RideController {
         Long userId = Long.parseLong(userIdString);
         Iterable<Ride> myRidesList = rideRepository.findAllByCreatedbyid(userId);
         model.addAttribute("myrides", myRidesList);
+
         return "myrides";
     }
 

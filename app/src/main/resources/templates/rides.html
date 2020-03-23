@@ -22,6 +22,7 @@
                 <th>Beskrivelse</th>
                 <th>Ledige seter</th>
             </tr>
+
             <tr th:each="ride : ${rides}">
                 <td th:text="${ride.getCreatedbyid()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>

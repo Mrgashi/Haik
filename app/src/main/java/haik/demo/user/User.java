@@ -7,18 +7,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name = "User")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (nullable = false)
-    private Long id;
+    private Long user_id;
 
-    @ManyToMany
-    @JoinTable(name = "user_ride",
-        joinColumns = {@JoinColumn(name = "ride_id", referencedColumnName = "id")},
-        inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
-    private Set<Ride> rides = new HashSet<Ride>();
+
+    //@JoinTable(name = "user_ride",
+//        joinColumns = {@JoinColumn(name = "ride_id", referencedColumnName = "id")},
+//        inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
+    @ManyToMany(mappedBy = "passengers")
+    private Set<Ride> rides = new HashSet<>();
 
     @Column(name = "firstname")
     private String firstName;
@@ -52,12 +54,12 @@ public class User {
     }
 
 
-    public Long getId() {
-        return id;
+    public Long getUser_id() {
+        return user_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser_id(Long id) {
+        this.user_id = id;
     }
 
     public String getFirstName() {
@@ -92,10 +94,18 @@ public class User {
         this.password = password;
     }
 
+    public Set<Ride> getRides() {
+        return rides;
+    }
+
+    public void setRides(Set<Ride> rides) {
+        this.rides = rides;
+    }
+
     @Override
     public String toString() {
         return "User: " +
-                "\nId: " + id +
+                "\nId: " + user_id +
                 "\nFirst Name: " + firstName +
                 "\nLast Name: " + lastName +
                 "\nEmail: " + email +

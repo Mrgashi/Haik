@@ -2,13 +2,15 @@ package haik.demo;
 
 import haik.demo.ride.Ride;
 import haik.demo.ride.RideRepository;
+import haik.demo.user.User;
 import haik.demo.user.UserRepository;
-import org.hibernate.tool.schema.internal.exec.AbstractScriptSourceInput;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,6 +22,9 @@ class DemoApplicationTests {
 
     @Autowired
     private RideRepository rideRepository;
+
+//    @Autowired
+//    private UserRideRepository userRideRepository;
 
     @Test
     void contextLoads() {
@@ -42,9 +47,15 @@ class DemoApplicationTests {
 
     @Test
     void shouldFindUserOneById() {
-        assertEquals("Karoline", userRepository.findById(1L).get().getFirstName());
+        assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
     }
 
+//    @Test
+//    void getUserRides() {
+//        User user = userRepository.findById(1L).get();
+//        List<UserRide> userRides = user.getUserRides();
+//        assertEquals(0 , userRides.size());
+//    }
 
     @Test
     void getAvailableSeats () {
@@ -53,8 +64,29 @@ class DemoApplicationTests {
     }
 
     @Test
-    void getSeatsAvailable() {
-        List<Ride> rides = (List<Ride>) rideRepository.findAll();
-        assertEquals(3, rides.get(1).getSeatsavailable());
+    void shouldFindAllPassengersInARide(){
+
+        // vi må vite om en ride
+
+        Optional<Ride> ride = rideRepository.findById(3L);
+        System.out.println(ride);
+
+        if(ride.isPresent()) {
+            Ride r = ride.get();
+            System.out.println(r.getPassengers());
+            assertEquals(3 , r.getPassengers().size());
+        }
+
+        // vi må hente alle passasjerer i en bestemt ride
+        // vi må printe alle navn på alle passasjerer
+
     }
+
+//    @Test
+//    void shouldFindByRide() {
+//        List<User> l = userRepository.findAllByEmailContains("test");
+//        assertEquals( "test",userRepository.findByEmail(l));
+//
+//
+//    }
 }

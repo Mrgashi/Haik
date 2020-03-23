@@ -50,17 +50,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/**", "/welcome", "/profile", "/signup", "/user/**").permitAll()
+                .antMatchers( "/", "/**","/postlogin", "/register/**", "/user", "/choosestatus").permitAll()
+                .antMatchers("/**/*.css").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/choosestatus", true)
-                .loginPage("/login")
-                .usernameParameter("email")
-                .permitAll();
+                .loginPage("/login").permitAll()
+                .usernameParameter("email");
 
         /* Finn ut hvilke av de punktene nedenfor som må være med for å slette cookies ved utlogging */
 
-//                .failureUrl("/errorlogin") landingpage etter et mislykket innloggingsforsøk
+//                .failureUrl("/errorlogin") // landing page etter et mislykket innloggingsforsøk
 //                .and()
 //                .logout()
 //                .logoutSuccessUrl("/");
