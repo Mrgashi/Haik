@@ -2,10 +2,11 @@ package haik.demo.ride;
 
 
 import haik.demo.user.User;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.TemporalType.DATE;
 
@@ -14,30 +15,31 @@ public class Ride {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(nullable=false)
     private Long id;
 
     @Temporal(DATE)
     @Column (name = "created")
     private Date created = new Date();
 
+    @ManyToMany
+    @JoinTable(name = "user_ride",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = @JoinColumn(name = "ride_id", referencedColumnName = "id"))
+    private Set<User> users = new HashSet<User>();
 
     @Column (name="createdbyid") // må denne annoteres som foreign key
     private Long createdbyid;
-
     @Column (name = "startdate")
     private String startDate;
-
    @Column (name = "starttime")
    private String starttime;
-
     @Column (name = "seatsavailable")
     private int seatsavailable;
     @Column (name = "startlocation")
     private String startlocation;
     @Column (name = "destination")
     private String destination;
-
     @Column (name = "comments")
     private String comments;
 

@@ -1,20 +1,24 @@
 package haik.demo.user;
-import haik.demo.userride.UserRide;
+import haik.demo.ride.Ride;
+
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
+    @Column (nullable = false)
     private Long id;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    List<UserRide> userRides = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(name = "user_ride",
+        joinColumns = {@JoinColumn(name = "ride_id", referencedColumnName = "id")},
+        inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
+    private Set<Ride> rides = new HashSet<Ride>();
 
     @Column(name = "firstname")
     private String firstName;
@@ -24,7 +28,7 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-    @Column(name = "phoneNumber")
+    @Column(name = "phone_number")
     private String phone_number;
 
     public User() {
@@ -38,13 +42,6 @@ public class User {
         this.phone_number = phone_number;
     }
 
-    public List<UserRide> getUserRides() {
-        return userRides;
-    }
-
-    public void setUserRides(List<UserRide> userRides) {
-        this.userRides = userRides;
-    }
 
     public String getPhone_number() {
         return phone_number;

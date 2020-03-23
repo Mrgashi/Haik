@@ -10,7 +10,6 @@ create table user
     primary key (id)
 );
 
-
 create table ride
 (
     id int(10) auto_increment unique,
@@ -25,16 +24,10 @@ create table ride
     primary key (id)
 );
 
-
-
-
 CREATE TABLE user_ride
 (
-    user_ride_id int(10) NOT NULL,
+    user_ride_id int(10) NOT NULL AUTO_INCREMENT UNIQUE ,
     user_id int(10) NOT NULL,
-    ride_id int(10) Default NULL,
-  PRIMARY KEY (`user_ride_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
-
-insert into user_ride (user_id, ride_id)
-values()
+    ride_id int(10) NOT NULL,
+    PRIMARY KEY (`user_ride_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
