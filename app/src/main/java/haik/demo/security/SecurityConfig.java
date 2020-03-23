@@ -8,12 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -28,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
         authProvider.setPasswordEncoder(encoder());
@@ -38,10 +34,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     // byttes til Bcrypt når signup er klar
     @Bean
-    public PasswordEncoder encoder(){
+    public PasswordEncoder encoder() {
         return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
-
     }
+
+//    Husk å bytte til denne!
+//    @Bean
+//    public PasswordEncoder encoder(){
+//        return new BCryptPasswordEncoder(11);
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -49,13 +50,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/**", "/profile", "/welcome", "/signup", "/createride", "/saveride", "/user/**", "/rides").permitAll()
+                .antMatchers("/**", "/welcome", "/profile", "/signup", "/user/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/choosestatus", true)
                 .loginPage("/login")
                 .usernameParameter("email")
                 .permitAll();
+
+        /* Finn ut hvilke av de punktene nedenfor som må være med for å slette cookies ved utlogging */
+
+//                .failureUrl("/errorlogin") landingpage etter et mislykket innloggingsforsøk
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/");
+//                .invalidateHttpSession(true)  //- Må disse med for å logge ordentlig ut og slette cookies?
+//                .deleteCookies("JSESSIONID")
     }
 
 
@@ -70,7 +80,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //
 //        return new InMemoryUserDetailsManager(user);
 //    }
-
 
 
 }

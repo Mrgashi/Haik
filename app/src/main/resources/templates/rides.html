@@ -17,23 +17,27 @@
                 <th>Sjåfør</th>
                 <th>Dato</th>
                 <th>Avreisetid</th>
-                <th>Ledige seter</th>
                 <th>Møteplass</th>
                 <th>Destinasjon</th>
                 <th>Beskrivelse</th>
+                <th>Ledige seter</th>
             </tr>
             <tr th:each="ride : ${rides}">
                 <td th:text="${ride.getCreatedbyid()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
-                <td th:text="${ride.getStartDate()}"></td>
-                <td th:text="${ride.getSeatsavailable()}"></td>
+                <td th:text="${ride.getStarttime()}"></td>
                 <td th:text="${ride.getStartlocation()}"></td>
                 <td th:text="${ride.getDestination()}"></td>
                 <td th:text="${ride.getComments()}"></td>
+                <td th:text="${ride.getSeatsavailable()}"></td>
             </tr>
+
         </table>
     </div>
-    <a href="/myrides" class="btn">Se mine turer</a>
+    <a href="/myrides"  class="smallbtn">Mine turer</a>
+    <a href="/choosestatus"  class="smallbtn">Meny</a>
+    <a href="/"  class="smallbtn">Profil</a>
+
 
 </div>
 

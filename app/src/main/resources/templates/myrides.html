@@ -16,26 +16,30 @@
     <div th:if="${not #lists.isEmpty(myrides)}">
         <table class="table table-striped">
             <tr>
-                <th>Opprettet av bruker</th>
+<!--                <th>Opprettet av bruker</th>-->
                 <th>Dato</th>
-                <th>Avreisetid</th>
-                <th>Ledige seter</th>
-                <th>Møteplass</th>
-                <th>Destinasjon</th>
-                <th>Beskrivelse</th>
+                <th>Klokken</th>
+                <th>Fra</th>
+                <th>Til</th>
+                <th>Plasser</th>
+ <!--                <th>Beskrivelse</th>-->
             </tr>
             <tr th:each="ride : ${myrides}">
-                <td th:text="${ride.getCreatedbyid()}"></td>
+<!--                <td th:text="${ride.getCreatedbyid()}"></td>-->
                 <td th:text="${ride.getStartDate()}"></td>
                 <td th:text="${ride.getStarttime()}"></td>
-                <td th:text="${ride.getSeatsavailable()}"></td>
                 <td th:text="${ride.getStartlocation()}"></td>
                 <td th:text="${ride.getDestination()}"></td>
-                <td th:text="${ride.getComments()}"></td>
+                <td th:text="${ride.getSeatsavailable()}"></td>
+  <!--                <td th:text="${ride.getComments()}"></td>-->
+
+
             </tr>
         </table>
     </div>
-    <a href="/rides" class="btn">Se alle tilgjengelige turer</a>
+    <a href="/rides" class="smallbtn">Alle turer</a>
+    <a href="/choosestatus" class="smallbtn">Meny</a>
+    <a href="/"  class="smallbtn">Profil</a>
 </div>
 
 

@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="style.css">
 
 
-    <title>Choose user status</title>
-    <style th:background="green"></style>
+    <title>Menu</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="myMenu">
         <div th:object="${user}">
             <h1>VELKOMMEN</h1>
             <h1 th:text="*{firstName}"></h1>
@@ -19,7 +18,7 @@
         <a href="/createride" class="btn">Opprett ny kjøretur</a>
         <a href="/rides" class="btn">Se tilgjengelige turer</a>
         <a href="/myrides" class="btn">Vis mine turer</a>
-        <a href="/" class="btn"> logg ut </a>
+        <a href="/logout" class="btn"> logg ut </a>
     </div>
 </body>
 </html>

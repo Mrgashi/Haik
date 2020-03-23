@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 @Controller
@@ -24,20 +22,26 @@ public class UserController {
     @Autowired
     PasswordEncoder encoder;
 
-    @GetMapping("/welcome")
+    @GetMapping("/")
     public String welcomePage() {
         return "welcome";
     }
 
+    @GetMapping("/logout")
+    public String logOut(){
+
+        return "rediret:/";
+    };
+
 
     @GetMapping("/register")
-    public String showSignupPage(Model model){
+    public String showSignupPage(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/register/successful")
-    public String registerNewUser( @ModelAttribute User user) {
+    public String registerNewUser(@ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
         return "redirect:/login"; // skal rett til login men må kobles til databasen
@@ -52,31 +56,33 @@ public class UserController {
     public String postLogIn(String email, HttpServletResponse response) {
         User user = userRepository.findByEmail(email);
         Long userId = user.getId();
-        Cookie cookie = new Cookie("userId", userId+"");
+        Cookie cookie = new Cookie("userId", userId + "");
         //add cookie to response
         response.addCookie(cookie);
 
-        return "redirect:/choosestatus/" + userId;
+        return "redirect:/choosestatus";
     }
 
-    //knyttes opp brukerside?
-    @GetMapping("/user/{id}")
-    public User user(@PathVariable Long id) {
-        return userRepository.findById(id).get();
-
-    }
+//    //Tror ikke denne er i bruk?
+//    @GetMapping("/user/{id}")
+//    public User user(@PathVariable Long id) {
+//        return userRepository.findById(id).get();
+//
+//    }
 
     @PostMapping("/user")
-    public User create(@RequestBody User user){
+    public User create(@RequestBody User user) {
         return userRepository.save(user);
     }
 
     @GetMapping("/choosestatus")
-    public String chooseStatus(Model model ) {
-        model.addAttribute("user", userRepository.findById(10L).get());
+    public String chooseStatus(Model model, @CookieValue("userId") String userIdString) {
+        Long userId = Long.parseLong(userIdString);
+        model.addAttribute("user", userRepository.findById(userId).get());
 
         return "chooseStatus";
     }
+
 
     //metode for når bruker velger å være sjåfør
     // skal denne egentlig være RESTcontroller?
