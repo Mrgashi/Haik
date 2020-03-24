@@ -1,13 +1,16 @@
 package haik.demo.ride;
 
 
+import haik.demo.user.User;
 import haik.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sun.security.krb5.internal.ccache.CredentialsCache;
 
 import javax.sql.DataSource;
+import java.util.Optional;
 
 
 @Controller
@@ -24,7 +27,6 @@ public class RideController {
 
     @GetMapping("/createride")
     public String newRide(Model model) {
-
         model.addAttribute("createRide", new Ride());
         return "createRide";
     }
@@ -39,10 +41,9 @@ public class RideController {
 //        return "redirect:/user/{id}/myrides"; fremtidig url ? (Karoline)
     }
 
-    @GetMapping("/rides")
+    @GetMapping("/ride")
     public String getRides(Model model) {
         model.addAttribute("rides", rideRepository.findAll());
-        model.addAttribute("users", userRepository.findAll());
         return "rides" ;
     }
 
