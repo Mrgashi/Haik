@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
+import java.security.Principal;
 
 
 @Controller
@@ -27,11 +28,10 @@ public class RideController {
         return "createRide";
     }
 
-    //    lagrer createdById i httpsession for å huske hvem som er innlogget
     @PostMapping("/saveride")
-    public String saveRide(@ModelAttribute Ride ride, @CookieValue("userId") String userIdString) {
-        Long userId = Long.parseLong(userIdString);
-        ride.setCreatedbyid(userId);
+    public String saveRide(@ModelAttribute Ride ride, Principal principal) {
+        String email = principal.getName();
+        ride.setDriver(userRepository.findByEmail(email));
         rideRepository.save(ride);
         return "redirect:/myrides";
     }
@@ -48,7 +48,7 @@ public class RideController {
     @GetMapping("/myrides")
     public String showMyRides(Model model, @CookieValue("userId") String userIdString) {
         Long userId = Long.parseLong(userIdString);
-        Iterable<Ride> myRidesList = rideRepository.findAllByCreatedbyid(userId);
+        Iterable<Ride> myRidesList = rideRepository.findAllByDriver(userRepository.findById(userId).get());
         model.addAttribute("myrides", myRidesList);
 
         return "myrides";
