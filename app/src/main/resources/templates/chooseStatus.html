@@ -5,20 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-
-
-    <title>Menu</title>
+    <title>Menu || Haik</title>
 </head>
-<body>
-    <div class="container" id="myMenu">
+
+<div class="header">
+    <header>
+        <h1>Haik</h1>
+    </header>
+</div>
+
+<body class="haik-image">
+
+<!-- <img src="images/haik2.jpg" alt="image of remote road">  -->
+    <div class="container" id="choosestatus">
         <div th:object="${user}">
-            <h1>VELKOMMEN</h1>
+            <h1>Velkommen</h1>
             <h1 th:text="*{firstName}"></h1>
+        <div class="buttons">
+        <a href="/createride" id="driver-btn" class="btn">Opprett ny kjøretur</a>
+        <a href="/rides" class="btn" id="rides-btn">Se tilgjengelige turer</a>
+        <a href="/myrides" class="btn" id="my-rides-btn">Vis mine turer</a>
+        <a href="/logout" class="btn" id="logout-btn"> logg ut </a>
         </div>
-        <a href="/createride" class="btn">Opprett ny kjøretur</a>
-        <a href="/rides" class="btn">Se tilgjengelige turer</a>
-        <a href="/myrides" class="btn">Vis mine turer</a>
-        <a href="/logout" class="btn"> logg ut </a>
     </div>
+</div>
 </body>
 </html>

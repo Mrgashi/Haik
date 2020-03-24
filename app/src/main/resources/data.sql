@@ -14,4 +14,4 @@ VALUES ('2020-03-19', '1', '2020-01-02', '10:00', '5', 'Ullevål Hageby', 'Stock
 
 
        INSERT INTO Haik.user_ride (rideId, userId )
-       values(1,4),(1,2)(1,3);
+       values(1,4),(1,2),(1,3);

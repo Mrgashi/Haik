@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>My rides</title>
+    <title>MyRides || Haik</title>
 </head>
 <body>
 
 <div class="container">
-    <h2>Mine turer </h2>
+    <h2>Mine turer || Haik</h2>
 
     
     <div th:if="${not #lists.isEmpty(myrides)}">
@@ -32,7 +32,6 @@
                 <td th:text="${ride.getDestination()}"></td>
                 <td th:text="${ride.getSeatsavailable()}"></td>
   <!--                <td th:text="${ride.getComments()}"></td>-->
-
 
             </tr>
         </table>
