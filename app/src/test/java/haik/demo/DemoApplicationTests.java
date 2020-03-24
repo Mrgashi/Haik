@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -23,8 +24,6 @@ class DemoApplicationTests {
     @Autowired
     private RideRepository rideRepository;
 
-//    @Autowired
-//    private UserRideRepository userRideRepository;
 
     @Test
     void contextLoads() {
@@ -82,11 +81,13 @@ class DemoApplicationTests {
 
     }
 
+
+//    //Trenger en test så vi kan hente ut sjåføren på opprettet tur, blir synlig i alle turer- listen
 //    @Test
-//    void shouldFindByRide() {
-//        List<User> l = userRepository.findAllByEmailContains("test");
-//        assertEquals( "test",userRepository.findByEmail(l));
+//    void shouldFindFirstNameOfCreatedById(){
+//        Iterable<Ride> rides=  rideRepository.findAllByCreatedbyid(2L);
 //
+//        assertEquals("test", rides );
 //
 //    }
 }

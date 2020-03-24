@@ -18,5 +18,4 @@ public interface RideRepository extends CrudRepository<Ride, Long> {
 
 
 
-
 }

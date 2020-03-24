@@ -21,6 +21,7 @@
                 <th>Destinasjon</th>
                 <th>Beskrivelse</th>
                 <th>Ledige seter</th>
+                <th>Sitt på</th>
             </tr>
 
             <tr th:each="ride : ${rides}">
@@ -31,6 +32,8 @@
                 <td th:text="${ride.getDestination()}"></td>
                 <td th:text="${ride.getComments()}"></td>
                 <td th:text="${ride.getSeatsavailable()}"></td>
+                <td><input type="button" value="Sitt på" class="minibtn"></td>
+
             </tr>
 
         </table>
@@ -38,6 +41,7 @@
     <a href="/myrides"  class="smallbtn">Mine turer</a>
     <a href="/choosestatus"  class="smallbtn">Meny</a>
     <a href="/"  class="smallbtn">Profil</a>
+    <a href="/createride"  class="smallbtn">Ny tur</a>
 
 </div>
 
