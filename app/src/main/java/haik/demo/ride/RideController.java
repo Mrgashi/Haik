@@ -31,7 +31,7 @@ public class RideController {
     @PostMapping("/saveride")
     public String saveRide(@ModelAttribute Ride ride, @CookieValue("userId") String userIdString) {
         Long userId = Long.parseLong(userIdString);
-        ride.setCreatedbyid(userId);
+        ride.setDriver(userRepository.findById(userId).get());
         rideRepository.save(ride);
         return "redirect:/myrides";
     }
@@ -48,7 +48,7 @@ public class RideController {
     @GetMapping("/myrides")
     public String showMyRides(Model model, @CookieValue("userId") String userIdString) {
         Long userId = Long.parseLong(userIdString);
-        Iterable<Ride> myRidesList = rideRepository.findAllByCreatedbyid(userId);
+        Iterable<Ride> myRidesList = rideRepository.findAllByDriver(userRepository.findById(userId).get());
         model.addAttribute("myrides", myRidesList);
 
         return "myrides";
