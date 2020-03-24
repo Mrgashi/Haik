@@ -43,6 +43,7 @@ public class UserController {
     @PostMapping("/register/successful")
     public String registerNewUser(@ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
+
         userRepository.save(user);
         return "redirect:/login"; // skal rett til login men må kobles til databasen
     }

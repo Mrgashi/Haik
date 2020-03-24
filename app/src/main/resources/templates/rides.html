@@ -25,14 +25,16 @@
             </tr>
 
             <tr th:each="ride : ${rides}">
-                <td th:text="${ride.getCreatedbyid()}"></td>
+                <td th:text="${ride.getDriver().getFirstName()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
                 <td th:text="${ride.getStarttime()}"></td>
                 <td th:text="${ride.getStartlocation()}"></td>
                 <td th:text="${ride.getDestination()}"></td>
                 <td th:text="${ride.getComments()}"></td>
                 <td th:text="${ride.getSeatsavailable()}"></td>
-                <td><input type="button" value="Sitt på" class="minibtn"></td>
+                <td><input type="button" value="Sitt på" class="minibtn" onclick="location.href='@Url.Action()'"></td>
+                <td><span th:each ="passenger : ${ride.passengers}" th:text ="${passenger.getFirstName()}"></span></td>
+
 
             </tr>
 
