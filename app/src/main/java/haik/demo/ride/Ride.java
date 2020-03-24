@@ -36,11 +36,8 @@ public class Ride {
             )
     private Set<User> passengers = new HashSet<>();
 
-
-    @ManyToOne
-    @JoinColumn(name="createdbyid"
-    )
-    private User driver;
+    @Column (name="createdbyid")
+    private Long createdbyid;
     @Column (name = "startdate")
     private String startDate;
    @Column (name = "starttime")
@@ -81,12 +78,12 @@ public class Ride {
         this.created = created;
     }
 
-    public User getDriver() {
-        return driver;
+    public Long getCreatedbyid() {
+        return createdbyid;
     }
 
-    public void setDriver(User createdbyid) {
-        this.driver = createdbyid;
+    public void setCreatedbyid(Long createdbyid) {
+        this.createdbyid = createdbyid;
     }
 
     public String getStartDate() {
@@ -151,7 +148,7 @@ public class Ride {
                 "id=" + ride_id +
                 ", created=" + created +
                 ", users=" + passengers +
-                ", createdbyid=" + driver +
+                ", createdbyid=" + createdbyid +
                 ", startDate='" + startDate + '\'' +
                 ", starttime='" + starttime + '\'' +
                 ", seatsavailable=" + seatsavailable +

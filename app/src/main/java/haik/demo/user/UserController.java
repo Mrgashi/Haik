@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
-import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -53,7 +52,23 @@ public class UserController {
         return "login";
     }
 
+    @PostMapping("/postlogin")
+    public String postLogIn(String email, HttpServletResponse response) {
+        User user = userRepository.findByEmail(email);
+        Long userId = user.getUser_id();
+        Cookie cookie = new Cookie("userId", userId + "");
+        //add cookie to response
+        response.addCookie(cookie);
 
+        return "redirect:/choosestatus";
+    }
+
+//    //Tror ikke denne er i bruk?
+//    @GetMapping("/user/{id}")
+//    public User user(@PathVariable Long id) {
+//        return userRepository.findById(id).get();
+//
+//    }
 
     @PostMapping("/user")
     public User create(@RequestBody User user) {
@@ -61,9 +76,9 @@ public class UserController {
     }
 
     @GetMapping("/choosestatus")
-    public String chooseStatus(Model model, Principal principal) {
-        String email = principal.getName();
-        model.addAttribute("user", userRepository.findByEmail(email));
+    public String chooseStatus(Model model, @CookieValue("userId") String userIdString) {
+        Long userId = Long.parseLong(userIdString);
+        model.addAttribute("user", userRepository.findById(userId).get());
 
         return "chooseStatus";
     }

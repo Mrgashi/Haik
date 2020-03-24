@@ -50,10 +50,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-                .antMatchers( "/", "/register/**", "/user", "/choosestatus","/**/*.css").permitAll()
+                .antMatchers( "/", "/**","/postlogin", "/register/**", "/user", "/choosestatus").permitAll()
+                .antMatchers("/**/*.css").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/choosestatus")
+                .formLogin().defaultSuccessUrl("/choosestatus", true)
                 .loginPage("/login").permitAll()
                 .usernameParameter("email");
 
