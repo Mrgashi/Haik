@@ -136,10 +136,10 @@ p {
 
 .smallbtn{
     display: inline-block;
-    width: 28%;
+    width: 26%;
     padding: 10px 15px;
     border: 0;
-    font-size: larger;
+    font-size: large;
     background-image: linear-gradient(#A1CBD5, #384446);
     color: #fff;
     border-radius: 10px;
@@ -148,6 +148,26 @@ p {
     text-align: center;
 }
 .smallbtn:hover {
+    cursor: pointer;
+    /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
+    background-image: linear-gradient(#BFA18F, #605148);
+}
+
+.minibtn {
+    display: inline-block;
+    width: 100%;
+    padding: 5px 7px;
+    border: 0;
+    font-size: small;
+    background-image: linear-gradient(#A1CBD5, #384446);
+    color: #fff;
+    border-radius: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+.minibtn:hover {
     cursor: pointer;
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);

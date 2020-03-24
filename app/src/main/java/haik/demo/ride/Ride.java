@@ -11,36 +11,45 @@ import java.util.Set;
 import static javax.persistence.TemporalType.DATE;
 
 @Entity
+@Table(name = "Ride")
 public class Ride {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable=false)
-    private Long id;
+//    @Column(nullable=false)
+    private Long ride_id;
 
     @Temporal(DATE)
-    @Column (name = "created")
+    @Column(name = "created")
     private Date created = new Date();
 
-    @ManyToMany
-    @JoinTable(name = "user_ride",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = @JoinColumn(name = "ride_id", referencedColumnName = "id"))
-    private Set<User> users = new HashSet<User>();
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinTable(
+            name = "User_Ride",
+            joinColumns = {@JoinColumn(name = "ride_id")},
+            inverseJoinColumns = {@JoinColumn(name = "user_id")}
+    )
+    private Set<User> passengers = new HashSet<>();
 
-    @Column (name="createdbyid") // må denne annoteres som foreign key
+    @Column(name = "createdbyid")
     private Long createdbyid;
-    @Column (name = "startdate")
+    @Column(name = "startdate")
     private String startDate;
-   @Column (name = "starttime")
-   private String starttime;
-    @Column (name = "seatsavailable")
+    @Column(name = "starttime")
+    private String starttime;
+    @Column(name = "seatsavailable")
     private int seatsavailable;
-    @Column (name = "startlocation")
+    @Column(name = "startlocation")
     private String startlocation;
-    @Column (name = "destination")
+    @Column(name = "destination")
     private String destination;
-    @Column (name = "comments")
+    @Column(name = "comments")
     private String comments;
 
 
@@ -50,16 +59,16 @@ public class Ride {
     // sett created dato til nå
     @PrePersist
     protected void onCreate() {
-      this.created = new Date();
-  }
-
-
-    public Long getId() {
-        return id;
+        this.created = new Date();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+
+    public Long getRide_id() {
+        return ride_id;
+    }
+
+    public void setRide_id(Long id) {
+        this.ride_id = id;
     }
 
     public Date getCreated() {
@@ -126,14 +135,23 @@ public class Ride {
         this.comments = comments;
     }
 
+    public Set<User> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(Set<User> users) {
+        this.passengers = users;
+    }
+
     @Override
     public String toString() {
         return "Ride{" +
-                "id=" + id +
+                "id=" + ride_id +
                 ", created=" + created +
+                ", users=" + passengers +
                 ", createdbyid=" + createdbyid +
-                ", startDate=" + startDate +
-                ", starttime=" + starttime +
+                ", startDate='" + startDate + '\'' +
+                ", starttime='" + starttime + '\'' +
                 ", seatsavailable=" + seatsavailable +
                 ", startlocation='" + startlocation + '\'' +
                 ", destination='" + destination + '\'' +

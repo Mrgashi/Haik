@@ -55,7 +55,7 @@ public class UserController {
     @PostMapping("/postlogin")
     public String postLogIn(String email, HttpServletResponse response) {
         User user = userRepository.findByEmail(email);
-        Long userId = user.getId();
+        Long userId = user.getUser_id();
         Cookie cookie = new Cookie("userId", userId + "");
         //add cookie to response
         response.addCookie(cookie);
@@ -92,7 +92,6 @@ public class UserController {
         //userRide.save(user); lagre tilstanden til user i user_ride- databasen
 
         return "/createRide";
-        //return "redirect:/user/{id}/myrides"; fremtidig url
     }
 
     //metode for når bruker velger å være passasjer

@@ -3,6 +3,7 @@ package haik.demo.ride;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
 
 @Repository
 public interface RideRepository extends CrudRepository<Ride, Long> {
@@ -11,6 +12,6 @@ public interface RideRepository extends CrudRepository<Ride, Long> {
 
     Iterable<Ride> findAllBySeatsavailable(int seats);
 
-
+    Optional<Ride> findById(Long id);
 
 }
