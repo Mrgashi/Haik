@@ -1,9 +1,13 @@
 package haik.demo.ride;
+
+import haik.demo.user.User;
 import haik.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.sql.DataSource;
 import java.security.Principal;
@@ -40,7 +44,7 @@ public class RideController {
     public String getRides(Model model) {
         Iterable<Ride> allRides = rideRepository.findAll();
         model.addAttribute("rides", allRides);
-        return "rides" ;
+        return "rides";
     }
 
     @GetMapping("/myrides")
@@ -48,17 +52,14 @@ public class RideController {
         String email = principal.getName();
         Iterable<Ride> myRidesList = rideRepository.findAllByDriver(userRepository.findByEmail(email));
         model.addAttribute("myrides", myRidesList);
-
         return "myrides";
     }
 
-    @GetMapping("/confirmtrip")
-    public String confirmTrip( Long rideid, Model model){
-        rideid =1L;
-        model.addAttribute("confirmride", rideRepository.findAllByDriver());
-        return "confirmtrip";
+    //er ikke ferdig, funker ikke enda
+    @GetMapping("/confirmride")
+    public String confirmTrip(User rideid, Model model) {
+        model.addAttribute("confirmride", rideRepository.findAllByDriver(rideid));
+        return "confirmride";
     }
-
-
 
 }

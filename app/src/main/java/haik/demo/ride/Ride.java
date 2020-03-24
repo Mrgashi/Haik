@@ -12,7 +12,6 @@ import static javax.persistence.TemporalType.DATE;
 @Entity
 @Table(name = "Ride")
 public class Ride {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(nullable=false)
@@ -25,23 +24,27 @@ public class Ride {
     @ManyToMany(
             fetch = FetchType.EAGER,
             cascade = {
-    CascadeType.PERSIST,
-    CascadeType.MERGE
-}
-            )
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
     @JoinTable(
             name = "User_Ride",
             joinColumns = {@JoinColumn(name = "ride_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
-            )
+    )
     private Set<User> passengers = new HashSet<>();
 
-    @Column (name="createdbyid")
-    private Long createdbyid;
+
+    @ManyToOne
+    @JoinColumn(name="createdbyid"
+    )
+    private User driver;
+
     @Column (name = "startdate")
     private String startDate;
-   @Column (name = "starttime")
-   private String starttime;
+    @Column (name = "starttime")
+    private String starttime;
     @Column (name = "seatsavailable")
     private int seatsavailable;
     @Column (name = "startlocation")
@@ -58,8 +61,8 @@ public class Ride {
     // sett created dato til nå
     @PrePersist
     protected void onCreate() {
-      this.created = new Date();
-  }
+        this.created = new Date();
+    }
 
 
     public Long getRide_id() {
@@ -78,12 +81,12 @@ public class Ride {
         this.created = created;
     }
 
-    public Long getCreatedbyid() {
-        return createdbyid;
+    public User getDriver() {
+        return driver;
     }
 
-    public void setCreatedbyid(Long createdbyid) {
-        this.createdbyid = createdbyid;
+    public void setDriver(User createdbyid) {
+        this.driver = createdbyid;
     }
 
     public String getStartDate() {
@@ -148,7 +151,7 @@ public class Ride {
                 "id=" + ride_id +
                 ", created=" + created +
                 ", users=" + passengers +
-                ", createdbyid=" + createdbyid +
+                ", createdbyid=" + driver +
                 ", startDate='" + startDate + '\'' +
                 ", starttime='" + starttime + '\'' +
                 ", seatsavailable=" + seatsavailable +

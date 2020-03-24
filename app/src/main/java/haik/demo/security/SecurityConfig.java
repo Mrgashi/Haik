@@ -32,11 +32,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
-
     @Bean
-    public PasswordEncoder encoder(){
-        return new BCryptPasswordEncoder(11);
+    public PasswordEncoder encoder() {
+        return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
     }
+
+//    @Bean
+//    public PasswordEncoder encoder(){
+//        return new BCryptPasswordEncoder(11);
+//    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -44,10 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-                .antMatchers( "/", "/register/**", "/choosestatus","/**/*.css").permitAll()
+                .antMatchers( "/", "/register/**", "/choosestatus","/**/*.css", "/**/*.html","/**/*.png").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/choosestatus", true)
+                .formLogin().defaultSuccessUrl("/choosestatus")
                 .loginPage("/login").permitAll()
                 .usernameParameter("email");
 
