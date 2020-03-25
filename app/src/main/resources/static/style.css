@@ -2,23 +2,41 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 100%;
 }
 body {
     font-family: canada-type-gibson, sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #fff;
-    color: #181B27;
 }
 
+.haik-image{
+    background-image: url("images/haik2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+
+.header {
+    color: white;
+    background-image: linear-gradient(#2A2E43, #08090D);
+    width: 100%;
+    height: 60px;
+    padding: 10px 10px;
+    text-align: start;
+    font-size: 34px;
+    margin-bottom: 5%;
+}
 
 h1 {
-    color: #1a202c;
-    font-size: 48px;
+
+    font-size: 36px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    text-align: start;
     font-family: canada-type-gibson, sans-serif;
 }
-
 
 h2 {
     font-size: 32px;
@@ -27,11 +45,13 @@ h2 {
     text-align: center;
     font-style: normal;
     font-weight: 600;
+    font-family: canada-type-gibson, sans-serif;
 }
 
 
 h3 {
     color: #181B27;
+    font-family: canada-type-gibson, sans-serif;
 }
 
 
@@ -41,74 +61,23 @@ h4 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     text-align: center;
+    font-family: canada-type-gibson, sans-serif;
 }
 
 p {
    color: #181B27;
+    font-family: canada-type-gibson, sans-serif;
 }
+
 
 
 .container {
     margin: auto;
     width: 500px;
-    padding: 6rem 2rem;
+    height: auto;
+    padding: 1rem;
     overflow: auto;
-}
 
-
-#my-form {
-    padding: 2rem;
-    background: #829fa3;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 10px #CEE4F2;
-}
-
-
-#my-form label {
-    display: block;
-    font-size: 24px;
-    font-weight: 500;
-    font-style: italic;
-    color: #1a202c;
-    padding: 10px 0;
-}
-
-
-#my-form input {
-    width: 100%;
-    padding: 6px;
-    font-size: 24px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    border: 1px solid #829fa3;
-}
-
-
-#login-form {
-    padding: 2rem;
-    background: #829fa3;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 10px #CEE4F2;
-}
-
-
-#login-form label {
-    display: block;
-    font-size: 24px;
-    color: #1a202c;
-    font-weight: 500;
-    padding: 10px 0;
-}
-
-
-#login-form input {
-    width: 100%;
-    padding: 8px;
-    font-size: 24px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #829fa3;
 }
 
 
@@ -129,10 +98,9 @@ p {
 
 .btn:hover {
     cursor: pointer;
-   /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
+    /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
 }
-
 
 .smallbtn{
     display: inline-block;
@@ -173,9 +141,109 @@ p {
     background-image: linear-gradient(#BFA18F, #605148);
 }
 
-#myMenu {
-    background-color: #454F63;
+#my-form {
+
+    width: 100%;
+    height: auto;
+    color: #1a202c;
+    padding: 2rem;
+    background: rgba(130, 159, 163, 0.7);
+    border-radius: 10px;
+
 }
+
+
+#my-form label {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    color: #1a202c;
+    padding: 10px 0;
+}
+
+
+#my-form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #829fa3;
+}
+
+
+#login-form {
+    width: 100%;
+    height: auto;
+    color: #1a202c;
+    padding: 2rem;
+    background: rgba(130, 159, 163, 0.7);
+    border-radius: 10px;
+
+}
+
+
+#login-form label {
+    display: block;
+    font-size: 24px;
+    color: #1a202c;
+    font-weight: 500;
+    padding: 10px 0;
+}
+
+#login-form input {
+    width: 100%;
+    padding: 8px;
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #829fa3;
+}
+
+
+#choosestatus {
+    position: absolute;
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 2rem;
+    background-color: rgba(130, 159, 163, 0.7);
+    border-radius: 20px;
+
+}
+
+#choosestatus label {
+    display: block;
+    font-size: 24px;
+    color: #1a202c;
+    font-weight: 500;
+    padding: 20px 0;
+}
+#choosestatus h1{
+    color: white;
+    text-align: center;
+    font-size: 34px;
+}
+
+.ride-container {
+    margin: auto;
+    width: auto;
+    height: auto;
+    padding: 6rem 2rem;
+    overflow: auto;
+}
+
+/*
+img {
+    width: 100%;
+    height: auto;
+
+}
+*/
 
 
 
@@ -218,5 +286,5 @@ Varm beige: #2A2E43, #08090D
 Gråbeige: #BFA18F, #605148
 Grå Tyrkis: #A1CBD5, #384446
 Blå/Navy: #3A3F5C, #08090D
-Mørkblå: #BFA18F, #A26F5C
+Mørkblå: linear-gradient(#2A2E43, #08090D)
 */

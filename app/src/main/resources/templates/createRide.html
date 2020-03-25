@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Create new ride</title>
+    <title>Create || Haik</title>
 </head>
 <body>
 <h1> Tilby Haik?</h1>
-<div class="container">
+<div id="ride-container">
     <form id="createRide" action="/saveride" method="POST" th:object="${createRide}">
         <div id="rideDestination">
             <div><label for="avreise">Fra <input id="avreise" type="text" name="startlocation" placeholder="Avreise"th:field="*{startlocation}"></label></div>

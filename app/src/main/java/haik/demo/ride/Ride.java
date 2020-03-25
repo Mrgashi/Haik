@@ -2,7 +2,6 @@ package haik.demo.ride;
 
 
 import haik.demo.user.User;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -34,7 +33,7 @@ public class Ride {
             name = "User_Ride",
             joinColumns = {@JoinColumn(name = "ride_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
-    )
+            )
     private Set<User> passengers = new HashSet<>();
 
 
@@ -42,11 +41,12 @@ public class Ride {
     @JoinColumn(name = "createdbyid"
     )
     private User driver;
-    @Column(name = "startdate")
+
+    @Column (name = "startdate")
     private String startDate;
-    @Column(name = "starttime")
+    @Column (name = "starttime")
     private String starttime;
-    @Column(name = "seatsavailable")
+    @Column (name = "seatsavailable")
     private int seatsavailable;
     @Column(name = "startlocation")
     private String startlocation;

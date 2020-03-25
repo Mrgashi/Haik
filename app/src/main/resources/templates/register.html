@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css"/>
-    <title>Sign up</title>
+    <title>Register || Haik</title>
 </head>
 
-<body>
-<div>
-    <h1>Haik</h1>
+<div class="header">
+    <header>
+        <h1>Haik</h1>
+    </header>
 </div>
+<body class="haik-image">
 <div class="container">
     <form id="my-form" action="/register/successful" method="POST" th:object="${user}">
         <h2>Sign up</h2>
         <div class="name_input">
-            <div><label>Fornavn: <input id="first" type="text" name="firstname" th:field="*{firstName}" placeholder="fornavn"/></label></div>
-            <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}" placeholder="etternavn"/></label></div>
-            <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}" placeholder="ola@normann.no"/></label></div>
-            <div> <label>Mobil:  <input type="tel" name="mobile" th:field="*{phone_number}" placeholder="81549300"/></label></div>
+            <div><label>Fornavn: <input id="first" type="text" name="firstname" th:field="*{firstName}" placeholder="fornavn" required /></label></div>
+            <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}" placeholder="etternavn" required /></label></div>
+            <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}" placeholder="ola@normann.no" required /></label></div>
+            <div> <label>Mobil:  <input type="tel" name="mobile" th:field="*{phone_number}" placeholder="81549300"required /></label></div>
             <div><label >Passord:  <input type="password" class="password" name="password" th:field="*{password}" placeholder="*****" required/></label></div>
         </div>
         <div>

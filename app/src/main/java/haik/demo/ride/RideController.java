@@ -1,9 +1,13 @@
 package haik.demo.ride;
+
+import haik.demo.user.User;
 import haik.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.sql.DataSource;
 import java.security.Principal;
@@ -32,7 +36,7 @@ public class RideController {
     @PostMapping("/saveride")
     public String saveRide(@ModelAttribute Ride ride, Principal principal) {
         String email = principal.getName();
-        ride.setDriver(userRepository.findByEmail(email).get());
+        ride.setDriver(userRepository.findByEmail(email));
         rideRepository.save(ride);
         return "redirect:/myrides";
     }
@@ -41,16 +45,22 @@ public class RideController {
     public String getRides(Model model) {
         Iterable<Ride> allRides = rideRepository.findAll();
         model.addAttribute("rides", allRides);
-//        model.addAttribute("users", userRepository.findAll());
-        return "rides" ;
+        return "rides";
     }
 
-    //    viser liste over turer knyttet til en enkelt bruker vha. http-session
     @GetMapping("/myrides")
     public String showMyRides(Model model, Principal principal) {
         String email = principal.getName();
-        Iterable<Ride> myRidesList = rideRepository.findAllByDriver(userRepository.findByEmail(email));
+        Ride myRidesList = (Ride) rideRepository.findAllByDriver(userRepository.findByEmail(email));
         model.addAttribute("myrides", myRidesList);
         return "myrides";
     }
+
+ //  //er ikke ferdig, funker ikke enda
+ //  @GetMapping("/confirmride")
+ //  public String confirmTrip(User rideid, Model model) {
+ //      model.addAttribute("confirmride", rideRepository.findAllByDriver(rideid));
+ //      return "confirmride";
+ //  }
+
 }

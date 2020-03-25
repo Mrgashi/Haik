@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Logg Inn</title>
+    <title>Logg Inn || Haik</title>
 </head>
-<body>
-<div>
+
+
+<div class="header">
+    <header>
     <h1>Haik</h1>
+    </header>
 </div>
+
+<body>
+<!--        class="haik-image"-->
+
 <div th:if="${param.error}">
     Ugyldig brukernavn og/eller passord.
 </div>
@@ -25,6 +32,7 @@
             <div><label> Passord: <input type="password" name="password" placeholder="*****"/></label></div>
         </div>
         <div><input type="submit" value="Logg inn" class="btn" id="login-btn"/></div>
+        <a href="/register"  class="btn">Registrer ny bruker</a>
     </form>
 </div>
 </body>

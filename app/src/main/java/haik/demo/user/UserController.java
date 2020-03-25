@@ -34,7 +34,6 @@ public class UserController {
         return "rediret:/";
     };
 
-
     @GetMapping("/register")
     public String showSignupPage(Model model) {
         model.addAttribute("user", new User());
@@ -45,19 +44,12 @@ public class UserController {
     public String registerNewUser(@ModelAttribute User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userRepository.save(user);
-        return "redirect:/login"; // skal rett til login men må kobles til databasen
+        return "redirect:/login";
     }
 
     @GetMapping("/login")
     public String logIn() {
         return "login";
-    }
-
-
-
-    @PostMapping("/user")
-    public User create(@RequestBody User user) {
-        return userRepository.save(user);
     }
 
     @GetMapping("/choosestatus")
@@ -69,24 +61,4 @@ public class UserController {
     }
 
 
-    //metode for når bruker velger å være sjåfør
-    // skal denne egentlig være RESTcontroller?
-    @PostMapping("/user/{id}/driver")
-    public String choseDriver(@PathVariable Long id, User user) {
-        // Boolean isDriver = true; kobles opp mot user_ride
-        //userRide.save(user); lagre tilstanden til user i user_ride- databasen
-
-        return "/createRide";
-    }
-
-    //metode for når bruker velger å være passasjer
-    // skal denne egentlig være RESTcontroller?
-    @PostMapping("/user/{id}/passenger")
-    public String chosePassenger(@PathVariable Long id, User user) {
-        // Boolean isDriver = false; kobles opp mot user_ride
-        //userRide.save(user); lagre tilstanden til user i user_ride- databasen
-
-        return "/rides";
-        // return "redirect:/user/{id}/rides"; fremtidig url
-    }
 }
