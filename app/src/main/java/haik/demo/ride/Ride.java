@@ -12,13 +12,14 @@ import static javax.persistence.TemporalType.DATE;
 @Entity
 @Table(name = "Ride")
 public class Ride {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(nullable=false)
     private Long ride_id;
 
     @Temporal(DATE)
-    @Column (name = "created")
+    @Column(name = "created")
     private Date created = new Date();
 
     @ManyToMany(
@@ -32,12 +33,12 @@ public class Ride {
             name = "User_Ride",
             joinColumns = {@JoinColumn(name = "ride_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
-    )
+            )
     private Set<User> passengers = new HashSet<>();
 
 
     @ManyToOne
-    @JoinColumn(name="createdbyid"
+    @JoinColumn(name = "createdbyid"
     )
     private User driver;
 
@@ -47,11 +48,11 @@ public class Ride {
     private String starttime;
     @Column (name = "seatsavailable")
     private int seatsavailable;
-    @Column (name = "startlocation")
+    @Column(name = "startlocation")
     private String startlocation;
-    @Column (name = "destination")
+    @Column(name = "destination")
     private String destination;
-    @Column (name = "comments")
+    @Column(name = "comments")
     private String comments;
 
 
