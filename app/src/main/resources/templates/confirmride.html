@@ -5,35 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <title>Bekreft reise</title>
+    <title>Bekreft reise || Ha!k</title>
 <body>
 
 <div class ="container" >
-<!--    <h2>Bekreft tur med <span th:text="*{ride.passengers.getDriver()}"></span></h2>-->
+    <h2>Bekreft tur med <span th:text="${confirmride}"></span></h2>
 
-    div th:if="${not #lists.isEmpty(rides)}">
-    <table class="table table-striped">
-        <tr>
-            <th>Sjåfør</th>
-            <th>Dato</th>
-            <th>Avreisetid</th>
-            <th>Møteplass</th>
-            <th>Destinasjon</th>
-            <th>Beskrivelse</th>
-            <th>Ledige seter</th>
-            <th>Sitt på</th>
-        </tr>
-
-        <tr th:each="ride : ${confirmride}">
-            <td th:text="${ride.getDriver().getFirstName()}"></td>
-            <td th:text="${ride.getStartDate()}"></td>
-            <td th:text="${ride.getStarttime()}"></td>
-            <td th:text="${ride.getStartlocation()}"></td>
-            <td th:text="${ride.getDestination()}"></td>
-            <td th:text="${ride.getComments()}"></td>
-            <td th:text="${ride.getSeatsavailable()}"></td>
-            <td><input type="button" value="Sitt på" class="minibtn" onclick="location.href='@Url.Action()'"></td>
-            <td><span th:each ="passenger : ${ride.passengers}" th:text ="${passenger.getFirstName()}"></span></td>
+    <form  action="/rideconfirmed"  method="post" th:object="${confirmride}"></form>
+            <input type="submit" th:href="'/myrides'" value="Bekreft tur" class="btn" >
+            <a href="/rides" class="btn">Avbryt</a>
 
 
         </tr>

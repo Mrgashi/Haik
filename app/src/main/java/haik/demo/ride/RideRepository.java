@@ -15,10 +15,14 @@ public interface RideRepository extends CrudRepository<Ride, Long> {
 
     Optional<Ride> findById(Long id);
 
+    Iterable<Ride> findAllByDriver(User driver);
+
     @Query(nativeQuery = true, value = "select user.firstname,  ride.startdate , ride.starttime , ride.startlocation  , ride.destination, ride.comments, ride.seatsavailable from user join ride on ride.createdById = user.user_id ")
     Iterable<Ride> findAllRides();
 
-    Iterable<Ride> findAllByDriver(User driver);
+//    Tror denne blir feil
+//    @Query(nativeQuery = true, value = "select ride.ride_id from user join ride on ride.createdbyid = user.user_id where ride.ride_id =:?id")
+//    Iterable<Ride> findFirstNameOfDriverOnSpesificRide(Ride ride_id);
 
 
 

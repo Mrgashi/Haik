@@ -1,4 +1,3 @@
-
 create table user
 (
     user_id int(10) auto_increment unique,
@@ -9,8 +8,6 @@ create table user
     phone_number varchar(100) not null,
     primary key (user_id)
 );
-
-
 create table ride
 (
     ride_id int(10) auto_increment unique,
@@ -24,15 +21,12 @@ create table ride
     comments varchar(255),
     primary key (ride_id)
 );
-
-
-
 CREATE TABLE user_ride
 (
     user_id      int(10)                       NOT NULL,
     ride_id      int(10)                       NOt NULL,
     PRIMARY KEY (`user_id`, `ride_id`),
-        KEY `ride_id` (`ride_id`),
+    KEY `ride_id` (`ride_id`),
     CONSTRAINT `user_ride_ibfk_1`
         FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
     CONSTRAINT `user_ride_ibfk_2`
@@ -40,4 +34,3 @@ CREATE TABLE user_ride
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_0900_ai_ci
-
