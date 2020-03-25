@@ -15,7 +15,9 @@
     </header>
 </div>
 
-<body class="haik-image">
+<body>
+<!--        class="haik-image"-->
+
 <div th:if="${param.error}">
     Ugyldig brukernavn og/eller passord.
 </div>
@@ -23,13 +25,14 @@
     You have been logged out.
 </div>
 <div class="container">
-    <form th:action="@{/postlogin}" id="login-form" method="post">
+    <form th:action="@{/login}" id="login-form" method="post">
         <div>
             <h2>Logg Inn</h2>
             <div><label> Brukernavn : <input type="email" name="email" placeholder="epost"/></label></div>
             <div><label> Passord: <input type="password" name="password" placeholder="*****"/></label></div>
         </div>
         <div><input type="submit" value="Logg inn" class="btn" id="login-btn"/></div>
+        <a href="/register"  class="btn">Registrer ny bruker</a>
     </form>
 </div>
 </body>

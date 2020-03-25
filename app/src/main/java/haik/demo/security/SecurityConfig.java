@@ -32,13 +32,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
-    // byttes til Bcrypt når signup er klar
     @Bean
     public PasswordEncoder encoder() {
         return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
     }
 
-//    Husk å bytte til denne!
 //    @Bean
 //    public PasswordEncoder encoder(){
 //        return new BCryptPasswordEncoder(11);
@@ -50,11 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-                .antMatchers( "/", "/**","/postlogin", "/register/**", "/user", "/choosestatus").permitAll()
-                .antMatchers("/**/*.css").permitAll()
+                .antMatchers( "/", "/register/**", "/choosestatus","/**/*.css", "/**/*.html","/**/*.png").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().defaultSuccessUrl("/choosestatus", true)
+                .formLogin().defaultSuccessUrl("/choosestatus")
                 .loginPage("/login").permitAll()
                 .usernameParameter("email");
 
@@ -68,18 +65,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .deleteCookies("JSESSIONID")
     }
 
-
-//    @Override
-//    public UserDetailsService userDetailsService() {
-//        UserDetails user =
-//                User.withDefaultPasswordEncoder()
-//                        .username("kd@gmail.com")
-//                        .password("123")
-//                        .roles("USER")
-//                        .build();
-//
-//        return new InMemoryUserDetailsManager(user);
-//    }
 
 
 }
