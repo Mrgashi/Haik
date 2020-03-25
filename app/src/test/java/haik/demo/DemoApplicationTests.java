@@ -82,12 +82,9 @@ class DemoApplicationTests {
     }
 
 
-//    //Trenger en test så vi kan hente ut sjåføren på opprettet tur, blir synlig i alle turer- listen
-//    @Test
-//    void shouldFindFirstNameOfCreatedById(){
-//        Iterable<Ride> rides=  rideRepository.findAllByCreatedbyid(2L);
-//
-//        assertEquals("test", rides );
-//
-//    }
+    @Test
+    void getNameOfDriver(){
+        List<User> r = (List<User>) userRepository.getNameOfDriver();
+        assertEquals("Arild", r.get(0).getFirstName());
+    }
 }
