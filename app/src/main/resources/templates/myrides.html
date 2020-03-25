@@ -7,40 +7,48 @@
     <link rel="stylesheet" href="style.css">
     <title>MyRides || Haik</title>
 </head>
-<body>
 
-<div class="container">
-    <h2>Mine turer || Haik</h2>
-
-    
-    <div th:if="${not #lists.isEmpty(myrides)}">
-        <table class="table table-striped">
-            <tr>
-<!--                <th>Opprettet av bruker</th>-->
-                <th>Dato</th>
-                <th>Klokken</th>
-                <th>Fra</th>
-                <th>Til</th>
-                <th>Plasser</th>
- <!--                <th>Beskrivelse</th>-->
-            </tr>
-            <tr th:each="ride : ${myrides}">
-<!--                <td th:text="${ride.getCreatedbyid()}"></td>-->
-                <td th:text="${ride.getStartDate()}"></td>
-                <td th:text="${ride.getStarttime()}"></td>
-                <td th:text="${ride.getStartlocation()}"></td>
-                <td th:text="${ride.getDestination()}"></td>
-                <td th:text="${ride.getSeatsavailable()}"></td>
-  <!--                <td th:text="${ride.getComments()}"></td>-->
-
-            </tr>
-        </table>
-    </div>
-    <a href="/rides" class="smallbtn">Alle turer</a>
-    <a href="/choosestatus" class="smallbtn">Meny</a>
-    <a href="/"  class="smallbtn">Profil</a>
+<div class="header">
+    <header>
+        <h1>Haik</h1>
+    </header>
 </div>
 
+<body class="haik-image">
+<div class="ride-container">
+    <h2>Mine turer</h2>
+
+    <div>
+        <div th:if="${not #lists.isEmpty(myrides)}">
+            <table class="table table-striped">
+                <tr>
+                    <!--                <th>Opprettet av bruker</th>-->
+                    <th>Dato</th>
+                    <th>Klokken</th>
+                    <th>Fra</th>
+                    <th>Til</th>
+                    <th>Plasser</th>
+                    <!--                <th>Beskrivelse</th>-->
+                </tr>
+                <tr th:each="ride : ${myrides}">
+                    <!--                <td th:text="${ride.getCreatedbyid()}"></td>-->
+                    <td th:text="${ride.getStartDate()}"></td>
+                    <td th:text="${ride.getStarttime()}"></td>
+                    <td th:text="${ride.getStartlocation()}"></td>
+                    <td th:text="${ride.getDestination()}"></td>
+                    <td th:text="${ride.getSeatsavailable()}"></td>
+                    <!--                <td th:text="${ride.getComments()}"></td>-->
+
+                </tr>
+            </table>
+        </div>
+        <div class="form-inline-buttons">
+            <a href="/rides" class="smallbtn">Alle turer</a>
+            <a href="/choosestatus" class="smallbtn">Meny</a>
+            <a href="/" class="smallbtn">Profil</a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
