@@ -17,6 +17,6 @@ public interface RideRepository extends CrudRepository<Ride, Long> {
     @Query(nativeQuery = true, value = "select user.firstname,  ride.startdate , ride.starttime , ride.startlocation  , ride.destination, ride.comments, ride.seatsavailable from user join ride on ride.createdById = user.user_id ")
             Iterable<Ride> findAllRides();
 
-    Iterable<Ride> findAllByDriver(User driver);
+    Iterable<Ride> findAllByDriver(Optional<User> driver);
 
 }

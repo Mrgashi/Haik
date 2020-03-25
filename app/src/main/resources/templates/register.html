@@ -20,7 +20,7 @@
             <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}" placeholder="etternavn"/></label></div>
             <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}" placeholder="ola@normann.no"/></label></div>
             <div> <label>Mobil:  <input type="tel" name="mobile" th:field="*{phone_number}" placeholder="81549300"/></label></div>
-            <div><label >Passord:  <input type="password" class="password" name="password" th:field="*{password}" placeholder="*****"/></label></div>
+            <div><label >Passord:  <input type="password" class="password" name="password" th:field="*{password}" placeholder="*****" required/></label></div>
         </div>
         <div>
             <input type="submit" value="Registrer" class="btn" id="register-btn"/>

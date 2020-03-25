@@ -16,9 +16,6 @@ public class User {
     private Long user_id;
 
 
-    //@JoinTable(name = "user_ride",
-//        joinColumns = {@JoinColumn(name = "ride_id", referencedColumnName = "id")},
-//        inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")})
     @ManyToMany(mappedBy = "passengers")
     private Set<Ride> rides = new HashSet<>();
 

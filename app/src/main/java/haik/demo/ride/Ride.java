@@ -2,6 +2,7 @@ package haik.demo.ride;
 
 
 import haik.demo.user.User;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -19,39 +20,39 @@ public class Ride {
     private Long ride_id;
 
     @Temporal(DATE)
-    @Column (name = "created")
+    @Column(name = "created")
     private Date created = new Date();
 
     @ManyToMany(
             fetch = FetchType.EAGER,
             cascade = {
-    CascadeType.PERSIST,
-    CascadeType.MERGE
-}
-            )
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            }
+    )
     @JoinTable(
             name = "User_Ride",
             joinColumns = {@JoinColumn(name = "ride_id")},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
-            )
+    )
     private Set<User> passengers = new HashSet<>();
 
 
     @ManyToOne
-    @JoinColumn(name="createdbyid"
+    @JoinColumn(name = "createdbyid"
     )
     private User driver;
-    @Column (name = "startdate")
+    @Column(name = "startdate")
     private String startDate;
-   @Column (name = "starttime")
-   private String starttime;
-    @Column (name = "seatsavailable")
+    @Column(name = "starttime")
+    private String starttime;
+    @Column(name = "seatsavailable")
     private int seatsavailable;
-    @Column (name = "startlocation")
+    @Column(name = "startlocation")
     private String startlocation;
-    @Column (name = "destination")
+    @Column(name = "destination")
     private String destination;
-    @Column (name = "comments")
+    @Column(name = "comments")
     private String comments;
 
 
@@ -61,8 +62,8 @@ public class Ride {
     // sett created dato til nå
     @PrePersist
     protected void onCreate() {
-      this.created = new Date();
-  }
+        this.created = new Date();
+    }
 
 
     public Long getRide_id() {

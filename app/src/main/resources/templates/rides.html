@@ -34,8 +34,6 @@
                 <td th:text="${ride.getSeatsavailable()}"></td>
                 <td><input type="button" value="Sitt på" class="minibtn"></td>
                 <td><span th:each ="passenger : ${ride.passengers}" th:text ="${passenger.getFirstName()}"></span></td>
-
-
             </tr>
 
         </table>
