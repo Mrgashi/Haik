@@ -106,6 +106,7 @@ public class RideController {
             ride.addPassenger(newPassenger);
             ride.setSeatsavailable(ride.getSeatsavailable() - 1);
         }
+
         rideRepository.save(ride);
 
         return "redirect:/myrides";
