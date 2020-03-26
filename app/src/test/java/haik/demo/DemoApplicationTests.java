@@ -2,23 +2,22 @@ package haik.demo;
 
 import haik.demo.ride.Ride;
 import haik.demo.ride.RideRepository;
-import haik.demo.user.User;
 import haik.demo.user.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.List;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class DemoApplicationTests {
 
+    //  Sørger for tilgang til UserRepository
     @Autowired
     private UserRepository userRepository;
 
+    //  Sørger for tilgang til RideRepository;
     @Autowired
     private RideRepository rideRepository;
 
@@ -47,51 +46,20 @@ class DemoApplicationTests {
         assertEquals("Mirdon", userRepository.findById(1L).get().getFirstName());
     }
 
-//    @Test
-//    void getUserRides() {
-//        User user = userRepository.findById(1L).get();
-//        List<UserRide> userRides = user.getUserRides();
-//        assertEquals(0 , userRides.size());
-//    }
-
     @Test
     void getAvailableSeats() {
-        List<Ride> ride = (List<Ride>) rideRepository.findAllBySeatsavailable(5);
+        List<Ride> ride = (List<Ride>) rideRepository.findAllBySeatsavailable(2);
         assertEquals("Ullevål Hageby", ride.get(0).getStartlocation());
     }
 
     @Test
     void shouldFindAllPassengersInARide() {
-
-        // vi må vite om en ride
-
         Optional<Ride> ride = rideRepository.findById(3L);
-        System.out.println(ride);
 
         if (ride.isPresent()) {
             Ride r = ride.get();
-            System.out.println(r.getPassengers());
-            assertEquals(3, r.getPassengers().size());
+            assertEquals(4, r.getPassengers().size());
         }
-
-        // vi må hente alle passasjerer i en bestemt ride
-        // vi må printe alle navn på alle passasjerer
-
-    }
-
-
-    @Test
-    void getNameOfDriver() {
-        List<User> r = (List<User>) userRepository.getNameOfDriver();
-        assertEquals("Arild", r.get(0).getFirstName());
-    }
-
-
-    @Test
-    void getDriverofSpesificRide() {
-//        Optional<Ride> id = rideRepository.findById(2L);
-//        Optional<Ride> ride = rideRepository.findByRide_id(id);
-//        assertEquals("Mirdon", ride.get().getDriver());
 
     }
 
