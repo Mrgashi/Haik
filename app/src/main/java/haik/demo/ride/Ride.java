@@ -1,27 +1,26 @@
 package haik.demo.ride;
 
-
 import haik.demo.user.User;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import static javax.persistence.TemporalType.DATE;
-
 @Entity
 @Table(name = "Ride")
 public class Ride {
 
+    //  Setter navn og kriterier for colonnene i database-tabellen og knytter de opp mot instansvariabler
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(nullable=false)
+    @Column (nullable = false)
     private Long ride_id;
 
-    @Temporal(DATE)
     @Column(name = "created")
     private Date created = new Date();
 
+    //Oppretter en mange til mange relasjon til User_ride
     @ManyToMany(
             fetch = FetchType.EAGER,
             cascade = {
@@ -34,25 +33,32 @@ public class Ride {
             joinColumns = {@JoinColumn(name = "ride_id"
             )},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
-            )
+    )
+    //mange til mange - koblingene lagres i hashSet
     private Set<User> passengers = new HashSet<>();
 
-
+    //kobler Ride opp mot brukeren som har opprettet turen, denne blir satt som driver
     @ManyToOne
     @JoinColumn(name = "createdbyid"
     )
     private User driver;
 
-    @Column (name = "startdate")
+
+    @Column(name = "startdate")
     private String startDate;
-    @Column (name = "starttime")
+
+    @Column(name = "starttime")
     private String starttime;
-    @Column (name = "seatsavailable")
+
+    @Column(name = "seatsavailable")
     private int seatsavailable;
+
     @Column(name = "startlocation")
     private String startlocation;
+
     @Column(name = "destination")
     private String destination;
+
     @Column(name = "comments")
     private String comments;
 
@@ -60,7 +66,7 @@ public class Ride {
     public Ride() {
     }
 
-    // sett created dato til nå
+    // setter dato for opprettelse til nå
     @PrePersist
     protected void onCreate() {
         this.created = new Date();
@@ -147,6 +153,7 @@ public class Ride {
         this.passengers = users;
     }
 
+    //metode for å legge passasjer til en tur
     public void addPassenger(User user) {
         this.passengers.add(user);
     }

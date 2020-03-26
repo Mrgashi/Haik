@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //  Gir tilgang til informasjonen fra MyUserDetailService
     @Autowired
     private MyUserDetailsService userDetailsService;
 
@@ -33,18 +34,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return authProvider;
     }
 
+    //  Krypterer brukerens passord
     @Bean
-    public PasswordEncoder encoder() {
-        return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
+    public PasswordEncoder encoder(){
+        return new BCryptPasswordEncoder(11);
     }
 
-//    @Bean
-//    public PasswordEncoder encoder(){
-//        return new BCryptPasswordEncoder(11);
-//    }
-
+    //  Legger føringer for hvilke sider som er synlig for en bruker som ikke er innlogget
+    //  Hvilken side en bruker først ser som innlogget og hva som er parameter for brukernavn
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    //SKAL DISSE FJERNES?
         http.csrf().disable();
         http.headers().frameOptions().disable();
         http
@@ -55,24 +55,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().defaultSuccessUrl("/choosestatus")
                 .loginPage("/login").permitAll()
                 .usernameParameter("email");
-
-        /* Finn ut hvilke av de punktene nedenfor som må være med for å slette cookies ved utlogging */
-
-//                .failureUrl("/errorlogin") // landing page etter et mislykket innloggingsforsøk
-//                .and()
-//                .logout()
-//                .logoutSuccessUrl("/");
-//                .invalidateHttpSession(true)  //- Må disse med for å logge ordentlig ut og slette cookies?
-//                .deleteCookies("JSESSIONID")
     }
 
-
+    //  Sørger for at bilder og styling ikke blir blokkert av spring security
     @Override
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
                 .antMatchers("/**/*.css", "/**/*.png", "/**/*.jpg");
     }
-
-
 }

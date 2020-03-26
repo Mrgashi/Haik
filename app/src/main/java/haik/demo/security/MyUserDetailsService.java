@@ -14,8 +14,9 @@ public class MyUserDetailsService implements UserDetailsService  {
     @Autowired
     UserRepository userRepository;
 
-
-    @Override//epost brukes som username
+    //  Epost brukes som brukernavn
+    //  Søker etter epost-adressen i databasen for verifisering
+    @Override
     public UserDetails loadUserByUsername(String email) {
         User user = userRepository.findByEmail(email);
         if (user == null){
