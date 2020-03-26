@@ -61,7 +61,7 @@ body {
 }
 
 h1 {
-    text-align: center;
+
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -114,11 +114,10 @@ p {
 
 .ride-container {
     margin: auto;
-    width: 60%;
+    width: 500px;
     height: auto;
     padding: 1rem;
     overflow: auto;
-    background: rgba(130, 159, 163, 0.7);
 
 }
 
@@ -277,7 +276,7 @@ p {
 #choosestatus {
     position: absolute;
     height: auto;
-    margin: 5%;
+    margin: 10%;
     padding: 2rem;
     background-color: rgba(130, 159, 163, 0.7);
     border-radius: 20px;
@@ -337,9 +336,7 @@ p {
     padding: 2rem;
     background: rgba(130, 159, 163, 0.7);
     border-radius: 10px;
-
 }
-
 
 #ride-container label {
     display: block;
@@ -372,12 +369,31 @@ p {
     border-radius: 10px;
 }
 
+#table-header{
+    font-size: larger;
+    font-weight: bolder;
+    color: #ffffff;
+}
 
+.ride-table-columns {
+    color: #fff;
+    font-size: 1em;
+    padding-left: 20px;
+
+}
+
+.seats{
+    font-weight: bold;
+    font-size: larger;
+    font-stretch: normal;
+    padding-left: 10px;
+
+}
 #confirmride {
     position: absolute;
     height: auto;
     margin-left: 37%;
-    margin-top: 11rem;
+    margin-top: 8rem;
     padding: 2rem;
     background-color: rgba(130, 159, 163, 0.7);
     border-radius: 20px;

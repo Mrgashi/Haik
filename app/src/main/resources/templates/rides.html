@@ -16,7 +16,7 @@
 </div>
 <body class="haik-image5">
 <div class="all-ride-container" id="all-rides-container">
-    <h2>Tilgjengelige turer</h2>
+    <h2>Tilgjengelige Ha!ks</h2>
 
     <div th:if="${not #lists.isEmpty(rides)}">
         <table class="table table-striped">
@@ -43,7 +43,7 @@
                 <td th:text="${ride.getStartlocation()}"></td>
                 <td th:text="${ride.getDestination()}"></td>
                 <td th:text="${ride.getComments()}"></td>
-                <td th:text="${ride.getSeatsavailable()}"></td>
+                <td th:text="${ride.getSeatsavailable()}" class="seats"></td>
                 <td ><a th:href="@{/confirmride/{id}(id=${ride.ride_id})}" class="minibtn">Sitt på</a></td>
 
 
