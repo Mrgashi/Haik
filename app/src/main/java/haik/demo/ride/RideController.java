@@ -55,6 +55,7 @@ public class RideController {
         User user = userRepository.findByEmail(email);
         Iterable<Ride> myRidesList = user.getRides();
         model.addAttribute("myrides", myRidesList);
+        model.addAttribute("driverRides",rideRepository.findAllByDriver(user));
         return "myrides";
     }
 
