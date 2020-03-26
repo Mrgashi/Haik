@@ -40,6 +40,7 @@ body {
     background-size: cover;
     position: relative;
 }
+
 .haik-image5 {
     background-image: url("images/remote_road-unsplash.png");
     background-position: center;
@@ -112,10 +113,11 @@ p {
 
 .ride-container {
     margin: auto;
-    width: 500px;
+    width: 60%;
     height: auto;
     padding: 1rem;
     overflow: auto;
+    background: rgba(130, 159, 163, 0.7);
 
 }
 
@@ -359,6 +361,34 @@ p {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #829fa3;
+}
+
+.name_input{
+
+    height: auto;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(130, 159, 163, 0.7);
+    border-radius: 10px;
+}
+
+
+#confirmride {
+    position: absolute;
+    height: auto;
+    margin-left: 37%;
+    margin-top: 11rem;
+    padding: 2rem;
+    background-color: rgba(130, 159, 163, 0.7);
+    border-radius: 20px;
+}
+
+#confirmride h1 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
 }
 
 

@@ -1,3 +1,5 @@
+CREATE SCHEMA haik;
+
 create table user
 (
     user_id int(10) auto_increment unique,
