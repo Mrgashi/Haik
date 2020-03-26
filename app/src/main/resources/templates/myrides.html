@@ -26,6 +26,7 @@
             </tr>
             <tr th:each="ride : ${myrides}">
 <!--                <td th:text="${ride.getCreatedbyid()}"></td>-->
+                <td th:text="${ride.getDriver()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
                 <td th:text="${ride.getStarttime()}"></td>
                 <td th:text="${ride.getStartlocation()}"></td>

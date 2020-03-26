@@ -31,7 +31,8 @@ public class Ride {
     )
     @JoinTable(
             name = "User_Ride",
-            joinColumns = {@JoinColumn(name = "ride_id")},
+            joinColumns = {@JoinColumn(name = "ride_id"
+            )},
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
             )
     private Set<User> passengers = new HashSet<>();
@@ -144,6 +145,10 @@ public class Ride {
 
     public void setPassengers(Set<User> users) {
         this.passengers = users;
+    }
+
+    public void addPassenger(User user) {
+        this.passengers.add(user);
     }
 
     @Override

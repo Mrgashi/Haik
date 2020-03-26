@@ -5,12 +5,11 @@ import haik.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.security.Principal;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -38,8 +37,6 @@ public class RideController {
         String email = principal.getName();
         ride.setDriver(userRepository.findByEmail(email));
         rideRepository.save(ride);
-        // opprett array med lengde lik ant. passasjerer + plass til sjåfør
-        // legg til sjåfør i array på index 0
         return "redirect:/myrides";
     }
 
@@ -53,32 +50,46 @@ public class RideController {
     @GetMapping("/myrides")
     public String showMyRides(Model model, Principal principal) {
         String email = principal.getName();
-        Iterable<Ride> myRidesList = rideRepository.findAllByDriver(userRepository.findByEmail(email));
+        User user = userRepository.findByEmail(email);
+        Iterable<Ride> myRidesList = user.getRides();
         model.addAttribute("myrides", myRidesList);
         return "myrides";
     }
 
     //er ikke ferdig, funker ikke enda
-    // hent inn id på tur som @Requestparam
-    @GetMapping("/confirmride")
-    public String confirmRide(Model model, Long ride_id) {
-        ride_id = 1L;
-        Set<User> ride = userRepository.getNameOfDriver();
+    // hent inn id på tur som @Pathvariable
+    @GetMapping("/confirmride/{rideId}")
+    public String confirmRide(Model model, Principal principal, @PathVariable Long rideId) {
+      Optional<Ride> optionalRide = rideRepository.findById(rideId);
+        String email = principal.getName();
+        User newPassenger = userRepository.findByEmail(email);
+
+        Ride ride = null;
+        if(optionalRide.isPresent()) {
+            ride = optionalRide.get();
+        }
+
         model.addAttribute("confirmride", ride);
         return "confirmride";
     }
 
-    //
-    @PostMapping("/rideconfirmed")
-    public String addPassenger() {
-        // få imm korrekt ride_id
-        //hent ut ledige seter i bilen
-        //sett nytt antall ledige seter --> setseats() = getseats -1.
-        //lag en verifisering dersom ledige seter == 0, blokker
-        //lagre passasjer til passengers.add (user_id)
-        //legg til passasjer i array på neste ledige plass
-            // 1. passasjer skal på index 1, --> (arr.length - ant. ledige plasser)
-                // eks. array lengde 5, sjåfør index 0, første av 4 passasjerer på index (5-4 = 1)
+
+    @PostMapping("/saveUserToRide")
+    public String addPassenger(@RequestParam String rideId, Principal principal) {
+        String email = principal.getName();
+        User newPassenger = userRepository.findByEmail(email);
+
+        Long longRideId = Long.parseLong(rideId);
+        Optional<Ride> optionalRide = rideRepository.findById(longRideId);
+
+        Ride ride = null;
+        if(optionalRide.isPresent()) {
+            ride = optionalRide.get();
+            ride.addPassenger(newPassenger);
+            ride.setSeatsavailable(ride.getSeatsavailable() - 1);
+        }
+
+        rideRepository.save(ride);
 
         return "redirect:/myrides";
     }

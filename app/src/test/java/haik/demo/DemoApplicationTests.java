@@ -8,10 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -57,23 +55,23 @@ class DemoApplicationTests {
 //    }
 
     @Test
-    void getAvailableSeats () {
+    void getAvailableSeats() {
         List<Ride> ride = (List<Ride>) rideRepository.findAllBySeatsavailable(5);
         assertEquals("Ullevål Hageby", ride.get(0).getStartlocation());
     }
 
     @Test
-    void shouldFindAllPassengersInARide(){
+    void shouldFindAllPassengersInARide() {
 
         // vi må vite om en ride
 
         Optional<Ride> ride = rideRepository.findById(3L);
         System.out.println(ride);
 
-        if(ride.isPresent()) {
+        if (ride.isPresent()) {
             Ride r = ride.get();
             System.out.println(r.getPassengers());
-            assertEquals(3 , r.getPassengers().size());
+            assertEquals(3, r.getPassengers().size());
         }
 
         // vi må hente alle passasjerer i en bestemt ride
@@ -83,8 +81,22 @@ class DemoApplicationTests {
 
 
     @Test
-    void getNameOfDriver(){
+    void getNameOfDriver() {
         List<User> r = (List<User>) userRepository.getNameOfDriver();
         assertEquals("Arild", r.get(0).getFirstName());
     }
+
+
+    @Test
+    void getDriverofSpesificRide() {
+//        Optional<Ride> id = rideRepository.findById(2L);
+//        Optional<Ride> ride = rideRepository.findByRide_id(id);
+//        assertEquals("Mirdon", ride.get().getDriver());
+
+    }
+
+
+
+
+
 }
