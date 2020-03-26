@@ -18,7 +18,7 @@
 <div class="container">
     <form id="my-form" action="/register/successful" method="POST" th:object="${user}">
         <h2>Sign up</h2>
-        <div class="name_input">
+        <div>
             <div><label>Fornavn: <input id="first" type="text" name="firstname" th:field="*{firstName}" placeholder="fornavn" required /></label></div>
             <div><label>Etternavn: <input id="last" type="text" name="lastname" th:field="*{lastName}" placeholder="etternavn" required /></label></div>
             <div> <label>Email:  <input type="email" id="email" name="email" th:field="*{email}" placeholder="ola@normann.no" required /></label></div>

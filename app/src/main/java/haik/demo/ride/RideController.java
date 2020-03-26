@@ -53,7 +53,6 @@ public class RideController {
     public String getRides(Model model) {
         Iterable<Ride> allRides = rideRepository.findAll();
         model.addAttribute("rides", allRides);
-
         return "rides";
     }
 

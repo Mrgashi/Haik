@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Rides || Haik</title>
+    <title>Rides || Ha!k</title>
 </head>
 <div class="header" th:object="${rides}">
     <header>
@@ -35,8 +35,8 @@
             </div>
             </thead>
             <tbody>
-            <div >
-            <tr class="ride-table-columns"  th:each="ride : ${rides}" th:if="${ride.getSeatsavailable() >= 1 }">
+            <div>
+            <tr class="ride-table-columns" th:each="ride : ${rides}" th:if="${ride.getSeatsavailable() >= 1 }">
                 <td th:text="${ride.getDriver().getFirstName()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
                 <td th:text="${ride.getStarttime()}"></td>
@@ -53,10 +53,10 @@
         </table>
     </div>
     <div class="form-inline-buttons">
-        <a href="/myrides" class="smallbtn">Mine turer</a>
-        <a href="/choosestatus" class="smallbtn">Meny</a>
-        <a href="/" class="smallbtn">Profil</a>
-        <a href="/createride" class="smallbtn">Ny tur</a>
+        <a href="/myrides" class="button">Mine turer</a>
+        <a href="/choosestatus" class="button">Meny</a>
+        <a href="/" class="button">Profil</a>
+        <a href="/createride" class="button">Ny tur</a>
     </div>
 </div>
 
