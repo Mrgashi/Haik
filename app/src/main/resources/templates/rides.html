@@ -35,7 +35,7 @@
             </thead>
             <tbody>
             <div >
-            <tr class="ride-table-columns"  th:each="ride : ${rides}" th:if="${ride.getSeatsavailable() >= 1 }" >
+            <tr class="ride-table-columns"  th:each="ride : ${rides}" th:if="${ride.getSeatsavailable() >= 1 }">
                 <td th:text="${ride.getDriver().getFirstName()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
                 <td th:text="${ride.getStarttime()}"></td>
@@ -44,7 +44,7 @@
                 <td th:text="${ride.getComments()}"></td>
                 <td th:text="${ride.getSeatsavailable()}"></td>
                 <td ><a th:href="@{/confirmride/{id}(id=${ride.ride_id})}" class="minibtn">Sitt på</a></td>
-                <td><span th:each ="passenger : ${ride.passengers}" th:text ="${passenger.getFirstName()}"></span></td>
+
 
             </tr>
             </div>
