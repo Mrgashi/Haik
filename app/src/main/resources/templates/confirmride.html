@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="style.css">
     <title>Bekreft reise || Ha!k</title>
 </head>
-    <div class="header">
-        <header>
-            <h1>Haik</h1>
-        </header>
-    </div>
+<div class="header">
+    <header>
+        <h1>Haik</h1>
+    </header>
+</div>
 <body>
 
-<div class ="container" >
+<div class="container">
     <h2>Bekreft tur med <span th:text="${confirmride}"></span></h2>
 
-    <form  action="/rideconfirmed"  method="post" th:object="${confirmride}">
-            <input type="submit" th:href="'/myrides'" value="Bekreft tur" class="btn" >
-            <a href="/rides" class="btn">Avbryt</a>
 
+    <form action="/rideconfirmed" method="post" th:object="${confirmride}">
+        <input type="submit" th:href="'/myrides'" value="Bekreft tur" class="btn">
+        <a href="/rides" class="btn">Avbryt</a>
     </form>
-    </div>
+</div>
 
 </body>
 </html>

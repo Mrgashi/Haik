@@ -1,16 +1,18 @@
 package haik.demo.ride;
 
+
 import haik.demo.user.User;
 import haik.demo.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.security.Principal;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -60,9 +62,8 @@ public class RideController {
 
     //er ikke ferdig, funker ikke enda
     // hent inn id på tur som @Requestparam
-    @GetMapping("/confirmride")
-    public String confirmRide(Model model, Long ride_id) {
-        ride_id = 1L;
+    @GetMapping("/confirmride/{ride_id}")
+    public String confirmRide(Model model, Ride ride_id) {
         Set<User> ride = userRepository.getNameOfDriver();
         model.addAttribute("confirmride", ride);
         return "confirmride";
@@ -70,17 +71,18 @@ public class RideController {
 
     //
     @PostMapping("/rideconfirmed")
-    public String addPassenger() {
-        // få imm korrekt ride_id
-        //hent ut ledige seter i bilen
-        //sett nytt antall ledige seter --> setseats() = getseats -1.
+    public String addRider(@RequestParam Ride ride_id, Principal principal, Model model) {
+        Ride rides = (Ride) rideRepository.findAll();
+        model.addAttribute("rides", rides);
+
+        return "rides";
+    }
+    //sett nytt antall ledige seter --> setseats() = getseats -1.
         //lag en verifisering dersom ledige seter == 0, blokker
         //lagre passasjer til passengers.add (user_id)
         //legg til passasjer i array på neste ledige plass
             // 1. passasjer skal på index 1, --> (arr.length - ant. ledige plasser)
                 // eks. array lengde 5, sjåfør index 0, første av 4 passasjerer på index (5-4 = 1)
 
-        return "redirect:/myrides";
-    }
 
 }
