@@ -96,8 +96,9 @@ h4 {
 }
 
 p {
-    color: #181B27;
+    color: #fff;
     font-family: canada-type-gibson, sans-serif;
+    font-size: larger;
 }
 
 
@@ -119,7 +120,6 @@ p {
     overflow: auto;
 
 }
-
 
 .btn {
     display: block;
@@ -143,15 +143,13 @@ p {
 }
 
 .smallbtn {
-    display: inline-block;
-    width: 26%;
     padding: 10px 15px;
     border: 0;
     font-size: large;
     background-image: linear-gradient(#A1CBD5, #384446);
     color: #fff;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 5px;
     text-decoration: none;
     text-align: center;
 }
@@ -313,7 +311,7 @@ p {
     color: #1a202c;
     margin: 12%;
     padding:  2rem;
-    background: rgba(191, 161, 143, 0.73);
+    background-color: rgba(130, 159, 163, 0.7);
     border-radius: 10px;
 
 }
