@@ -10,11 +10,11 @@
 </head>
 <div class="header">
     <header>
-        <h1>Haik</h1>
+        <h1>Ha!k</h1>
     </header>
 </div>
-<body class="haik-image">
-<div class="ride-container" id="all-rides-container">
+<body class="haik-image5">
+<div class="all-ride-container" id="all-rides-container">
     <h2>Tilgjengelige turer</h2>
 
     <div th:if="${not #lists.isEmpty(rides)}">
@@ -45,7 +45,6 @@
                 <td th:text="${ride.getSeatsavailable()}"></td>
                 <td><a th:href="@{/confirmride/{id}(id=${ride.ride_id})}" class="minibtn">Sitt på</a></td>
                 <td><span th:each ="passenger : ${ride.passengers}" th:text ="${passenger.getFirstName()}"></span></td>
-
 
             </tr>
             </div>

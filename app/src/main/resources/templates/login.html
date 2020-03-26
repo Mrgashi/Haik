@@ -11,16 +11,17 @@
 
 <div class="header">
     <header>
-        <h1>Haik</h1>
+        <h1>Ha!k</h1>
     </header>
 </div>
 <body class="haik-image">
-
+<div class="container">
 <div th:if="${param.error}">
     Ugyldig brukernavn og/eller passord.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
+</div>
 </div>
 <div class="container">
     <form th:action="@{/login}" id="login-form" method="post">

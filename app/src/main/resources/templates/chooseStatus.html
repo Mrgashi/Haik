@@ -7,17 +7,15 @@
     <link rel="stylesheet" href="/style.css">
     <title>Menu || Haik</title>
 </head>
-
-
-
 <div class="header">
     <header>
-        <h1>Haik</h1>
+        <h1>Ha!k</h1>
     </header>
 </div>
 <body class="haik-image">
 <!-- <img src="images/haik2.jpg" alt="image of remote road">  -->
-    <div class="container" id="choosestatus">
+   <div class="container">
+    <div  id="choosestatus">
         <div th:object="${user}">
             <h1>Velkommen</h1>
             <h1 th:text="*{firstName}"></h1>
@@ -25,9 +23,10 @@
         <a href="/createride" id="driver-btn" class="btn">Opprett ny kjøretur</a>
         <a href="/rides" class="btn" id="rides-btn">Se tilgjengelige turer</a>
         <a href="/myrides" class="btn" id="my-rides-btn">Vis mine turer</a>
-        <a href="/logout" class="btn" id="logout-btn"> logg ut </a>
+        <a href="/" class="btn" id="logout-btn"> logg ut </a>
         </div>
     </div>
 </div>
+   </div>
 </body>
 </html>
