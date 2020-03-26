@@ -4,6 +4,7 @@
     box-sizing: border-box;
     height: 100%;
 }
+
 body {
     font-family: canada-type-gibson, sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #fff;
@@ -13,7 +14,7 @@ body {
     background-image: url("images/haik2.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+     background-size: cover;
     position: relative;
 }
 
@@ -29,7 +30,7 @@ body {
     background-image: url("images/snowey_road_unsplash.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+     background-size: cover;
     position: relative;
 }
 
@@ -37,9 +38,10 @@ body {
     background-image: url("images/mountain-road-unsplash.png");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+     background-size: cover;
     position: relative;
 }
+
 .haik-image5 {
     background-image: url("images/remote_road-unsplash.png");
     background-position: center;
@@ -47,6 +49,15 @@ body {
     background-size: cover;
     position: relative;
 }
+
+.haik-image6 {
+    background-image: url("images/hands-on-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 
 .header {
     color: white;
@@ -79,7 +90,8 @@ h2 {
 
 
 h3 {
-    color: #181B27;
+    color: white;
+    font-size: 34px;
     font-family: canada-type-gibson, sans-serif;
     font-weight: 600;
 }
@@ -99,7 +111,18 @@ p {
     font-family: canada-type-gibson, sans-serif;
 }
 
-
+#intro {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: #BFA18F;
+}
+#invalid-input{
+    color: firebrick;
+    font-size: 16px;
+    text-align: center;
+    text-transform: capitalize;
+}
 
 .container {
     margin: auto;
@@ -112,7 +135,7 @@ p {
 
 .ride-container {
     margin: auto;
-    width: 500px;
+    width: -moz-fit-content;
     height: auto;
     padding: 1rem;
     overflow: auto;
@@ -141,16 +164,35 @@ p {
     background-image: linear-gradient(#BFA18F, #605148);
 }
 
-.smallbtn {
+.mediumbtn {
     display: inline-block;
-    width: 26%;
+    width: 25%;
     padding: 10px 15px;
     border: 0;
     font-size: large;
     background-image: linear-gradient(#A1CBD5, #384446);
     color: #fff;
     border-radius: 10px;
-    margin: 20px 0;
+    margin: 1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.mediumbtn:hover {
+    cursor: pointer;
+    /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
+    background-image: linear-gradient(#BFA18F, #605148);
+}
+.smallbtn {
+    display: inline-block;
+    width: 20%;
+    padding: 10px 15px;
+    border: 0;
+    font-size: large;
+    background-image: linear-gradient(#A1CBD5, #384446);
+    color: #fff;
+    border-radius: 10px;
+    margin: 1rem;
     text-decoration: none;
     text-align: center;
 }
@@ -180,6 +222,9 @@ p {
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
 }
+
+
+
 
 #my-form {
 
@@ -275,9 +320,9 @@ p {
 }
 
 #choosestatus {
-    position: absolute;
+
     height: auto;
-    margin: 10%;
+    margin: 20%;
     padding: 2rem;
     background-color: rgba(130, 159, 163, 0.7);
     border-radius: 20px;
@@ -292,17 +337,18 @@ p {
     padding: 20px 0;
 }
 
-#choosestatus h1 {
+#choosestatus h3 {
     color: white;
     text-align: center;
     font-size: 34px;
 }
 
-.all-ride-container{
-    margin: auto;
+.all-ride-container {
+  width: 100%;
     height: auto;
     padding: 2rem;
     overflow: auto;
+    margin: 5% 10%;
 }
 
 
@@ -310,19 +356,14 @@ p {
 
     height: auto;
     color: #1a202c;
-    margin: 12%;
-    padding:  2rem;
+    padding: 2rem;
     background: rgba(191, 161, 143, 0.73);
     border-radius: 10px;
-
+    width: -moz-max-content;
 }
 
 #all-rides-container .smallbtn {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    align-content: center;
-    width: 30px;
-    padding: 10px;
+display: inline-block;
 }
 
 #all-rides-container h2 {
@@ -332,6 +373,7 @@ p {
 }
 
 #ride-container {
+    width: -moz-max-content;
     height: auto;
     color: #1a202c;
     padding: 2rem;
@@ -340,14 +382,8 @@ p {
 
 }
 
-
-#ride-container label {
-    display: block;
-    font-size: 24px;
-    font-weight: 500;
-    font-style: italic;
-    color: #1a202c;
-    padding: 10px 0;
+#ride-container .smallbtn{
+  display: inline-block;
 }
 
 
