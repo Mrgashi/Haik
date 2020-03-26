@@ -35,8 +35,10 @@ public class RideController {
     @PostMapping("/saveride")
     public String saveRide(@ModelAttribute Ride ride, Principal principal) {
         String email = principal.getName();
+        User newPassenger = userRepository.findByEmail(email);
         ride.setDriver(userRepository.findByEmail(email));
         rideRepository.save(ride);
+        ride.addPassenger(newPassenger);
         return "redirect:/myrides";
     }
 

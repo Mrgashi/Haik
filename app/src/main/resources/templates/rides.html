@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="style.css">
     <title>Rides || Haik</title>
 </head>
-<body>
-<div class="container">
+<div class="header">
+    <header>
+        <h1>Haik</h1>
+    </header>
+</div>
+<body class="haik-image">
+<div class="ride-container" id="all-rides-container">
     <h2>Tilgjengelige turer</h2>
 
     <div th:if="${not #lists.isEmpty(rides)}">
         <table class="table table-striped">
+            <thead id="table-header" class="ride-table-header">
+           <div class="table-rows">
             <tr>
-                <th>Sjåfør</th>
-                <th>Dato</th>
-                <th>Avreisetid</th>
-                <th>Møteplass</th>
-                <th>Destinasjon</th>
-                <th>Beskrivelse</th>
-                <th>Ledige seter</th>
-                <th>Sitt på</th>
+                <th scope="row">Sjåfør</th>
+                <th scope="row">Dato</th>
+                <th scope="row">Avreisetid</th>
+                <th scope="row">Møteplass</th>
+                <th scope="row">Destinasjon</th>
+                <th scope="row">Beskrivelse</th>
+                <th scope="row">Ledige seter</th>
+                <th scope="row">Sitt på</th>
             </tr>
-
+           </div>
+            </thead>
+            <tbody>
+            <div class="ride-table-columns">
             <tr th:each="ride : ${rides}">
                 <td th:text="${ride.getDriver().getFirstName()}"></td>
                 <td th:text="${ride.getStartDate()}"></td>
@@ -37,15 +48,21 @@
 
 
             </tr>
-
+            </div>
+            </tbody>
         </table>
     </div>
-    <a href="/myrides"  class="smallbtn">Mine turer</a>
-    <a href="/choosestatus"  class="smallbtn">Meny</a>
-    <a href="/"  class="smallbtn">Profil</a>
-    <a href="/createride"  class="smallbtn">Ny tur</a>
-
+    <div class="form-inline-buttons">
+        <a href="/myrides" class="smallbtn">Mine turer</a>
+        <a href="/choosestatus" class="smallbtn">Meny</a>
+        <a href="/" class="smallbtn">Profil</a>
+        <a href="/createride" class="smallbtn">Ny tur</a>
+    </div>
 </div>
-
+<!--
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+-->
 </body>
 </html>
