@@ -13,6 +13,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
     User findByFirstName(String firstName);
 
+    //  Spørring for å hente ut navnet på sjåfør ved å joine User og Ride - tabellen vha. user_id.
     @Query(nativeQuery = true, value = "select * from user join ride on ride.createdById = user.user_id and user.user_id")
     Set<User> getNameOfDriver();
 

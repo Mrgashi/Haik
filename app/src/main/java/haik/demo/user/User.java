@@ -1,7 +1,6 @@
 package haik.demo.user;
+
 import haik.demo.ride.Ride;
-
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,12 +9,16 @@ import java.util.Set;
 @Table(name = "User")
 public class User {
 
+    //  Setter navn og kriterier for colonnene i database-tabellen og knytter de opp mot instansvariabler
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (nullable = false)
     private Long user_id;
 
-
+    //  Oppretter en mange til mange relasjon til User_ride
+    //  Lagrer resultatet av user_rides i hashSettet rides
+    //  settet kobles opp mot settet passengers i Rides
     @ManyToMany(mappedBy = "passengers")
     private Set<Ride> rides = new HashSet<>();
 
@@ -31,14 +34,6 @@ public class User {
     private String phone_number;
 
     public User() {
-    }
-
-    public User(String firstName, String lastName, String email, String password, String phone_number) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.phone_number = phone_number;
     }
 
 

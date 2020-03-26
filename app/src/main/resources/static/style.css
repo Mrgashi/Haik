@@ -4,7 +4,6 @@
     box-sizing: border-box;
     height: 100%;
 }
-
 body {
     font-family: canada-type-gibson, sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #fff;
@@ -18,12 +17,42 @@ body {
     position: relative;
 }
 
+.haik-image2 {
+    background-image: url("images/fall_road-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.haik-image3 {
+    background-image: url("images/snowey_road_unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.haik-image4 {
+    background-image: url("images/mountain-road-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.haik-image5 {
+    background-image: url("images/remote_road-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
 
 .header {
     color: white;
     background-image: linear-gradient(#2A2E43, #08090D);
     width: 100%;
-    height: 60px;
+    height: 100px;
     padding: 20px 10px;
     text-align: start;
     font-size: 34px;
@@ -31,7 +60,7 @@ body {
 }
 
 h1 {
-
+    text-align: center;
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -71,7 +100,17 @@ p {
 }
 
 
+
 .container {
+    margin: auto;
+    width: 500px;
+    height: auto;
+    padding: 1rem;
+    overflow: auto;
+}
+
+
+.ride-container {
     margin: auto;
     width: 500px;
     height: auto;
@@ -207,9 +246,11 @@ p {
 
 
 #welcome-form {
-    width: 100%;
+
     height: auto;
-    color: #1a202c;
+    color: white;
+    font-weight: normal;
+    text-align: center;
     padding: 2rem;
     background: rgba(130, 159, 163, 0.7);
     border-radius: 10px;
@@ -235,10 +276,8 @@ p {
 
 #choosestatus {
     position: absolute;
-    width: 40%;
-    margin-top: 10%;
-    margin-left: 30%;
-    margin-right: 30%;
+    height: auto;
+    margin: 5%;
     padding: 2rem;
     background-color: rgba(130, 159, 163, 0.7);
     border-radius: 20px;
@@ -259,9 +298,8 @@ p {
     font-size: 34px;
 }
 
-.ride-container {
+.all-ride-container{
     margin: auto;
-    width: 800px;
     height: auto;
     padding: 2rem;
     overflow: auto;
@@ -269,10 +307,10 @@ p {
 
 
 #all-rides-container {
-    width: 100%;
+
     height: auto;
     color: #1a202c;
- margin: 5%;
+    margin: 12%;
     padding:  2rem;
     background: rgba(191, 161, 143, 0.73);
     border-radius: 10px;
@@ -293,6 +331,37 @@ p {
     color: white;
 }
 
+#ride-container {
+    height: auto;
+    color: #1a202c;
+    padding: 2rem;
+    background: rgba(130, 159, 163, 0.7);
+    border-radius: 10px;
+
+}
+
+
+#ride-container label {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    color: #1a202c;
+    padding: 10px 0;
+}
+
+
+#ride-container input {
+    width: 100%;
+    padding: 8px;
+    font-size: 24px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #829fa3;
+}
+
+
 
 /*
 img {
@@ -301,6 +370,7 @@ img {
 
 }
 */
+
 
 
 /* HAIK COLOR PLALETTE
