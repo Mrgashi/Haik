@@ -14,15 +14,43 @@
     </div>
 <body>
 
-<div class ="container" >
-    <h2>Bekreft tur med <span th:text="${confirmride}"></span></h2>
+<div class="container">
+    <h2>Bekreft tur med <span th:text="${confirmride.driver.firstName}"></span></h2>
 
-    <form  action="/rideconfirmed"  method="post" th:object="${confirmride}">
-            <input type="submit" th:href="'/myrides'" value="Bekreft tur" class="btn" >
-            <a href="/rides" class="btn">Avbryt</a>
-
-    </form>
+    <div>
+        <p>
+            <span>Oppmøte: </span><span th:text="${confirmride.startlocation}"></span>
+        </p>
+        <p>
+            <span>Den: </span><span th:text="${confirmride.startDate}"></span>
+        </p>
+        <p>
+            <span>Klokken: </span><span th:text="${confirmride.starttime}"></span>
+        </p>
+        <p>
+            <span>Til: </span><span th:text="${confirmride.destination}"></span>
+        </p>
+        <p>
+            <span>Andre opplysninger: </span><span th:text="${confirmride.comments}"></span>
+        </p>
     </div>
+
+    <div>
+        <form id="saveUserToRide" th:action="@{/saveUserToRide}" method="POST">
+            <input type="hidden" name="rideId" th:value="${confirmride.ride_id}">
+        <input type="submit" value="Bekreft tur" class="btn">
+        </form>
+        <a href="/rides" class="btn">Avbryt</a>
+    </div>
+
+
+
+
+
+
+
+
+</div>
 
 </body>
 </html>

@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.headers().frameOptions().disable();
         http
                 .authorizeRequests()
-                .antMatchers( "/", "/register/**", "/choosestatus","/**/*.css", "/**/*.html","/**/*.png").permitAll()
+                .antMatchers( "/", "/register/**", "/choosestatus").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().defaultSuccessUrl("/choosestatus")

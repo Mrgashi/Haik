@@ -43,7 +43,7 @@
                 <td th:text="${ride.getDestination()}"></td>
                 <td th:text="${ride.getComments()}"></td>
                 <td th:text="${ride.getSeatsavailable()}"></td>
-                <td><input type="button" value="Sitt på" class="minibtn" onclick="location.href='@URL.Action("confirmride")"/></td>
+                <td><a th:href="@{/confirmride/{id}(id=${ride.ride_id})}" class="minibtn">Sitt på</a></td>
                 <td><span th:each ="passenger : ${ride.passengers}" th:text ="${passenger.getFirstName()}"></span></td>
 
 

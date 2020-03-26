@@ -4,7 +4,6 @@
     box-sizing: border-box;
     height: 100%;
 }
-
 body {
     font-family: canada-type-gibson, sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #fff;
@@ -17,6 +16,7 @@ body {
     background-size: cover;
     position: relative;
 }
+
 
 
 .header {
@@ -69,6 +69,7 @@ p {
     color: #181B27;
     font-family: canada-type-gibson, sans-serif;
 }
+
 
 
 .container {
@@ -301,6 +302,7 @@ img {
 
 }
 */
+
 
 
 /* HAIK COLOR PLALETTE

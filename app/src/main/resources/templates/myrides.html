@@ -10,34 +10,34 @@
 
 <div class="header">
     <header>
-        <h1>Haik</h1>
+        <h1>Ha!k</h1>
     </header>
 </div>
 <body class="haik-image">
 
 <div class="ride-container">
-    <h2>Mine turer</h2>
+    <h2>Mine Ha!ks</h2>
 
     <div>
         <div th:if="${not #lists.isEmpty(myrides)}">
             <table class="table table-striped">
                 <tr>
-                    <!--                <th>Opprettet av bruker</th>-->
+                    <th>Sjåfør</th>
                     <th>Dato</th>
                     <th>Klokken</th>
                     <th>Fra</th>
                     <th>Til</th>
-                    <th>Plasser</th>
-                    <!--                <th>Beskrivelse</th>-->
+                    <th>Kommentar</th>
+
                 </tr>
                 <tr th:each="ride : ${myrides}">
-                    <!--                <td th:text="${ride.getCreatedbyid()}"></td>-->
+                    <td th:text="${ride.getDriver().firstName}"></td>
                     <td th:text="${ride.getStartDate()}"></td>
                     <td th:text="${ride.getStarttime()}"></td>
                     <td th:text="${ride.getStartlocation()}"></td>
                     <td th:text="${ride.getDestination()}"></td>
-                    <td th:text="${ride.getSeatsavailable()}"></td>
-                    <!--                <td th:text="${ride.getComments()}"></td>-->
+                    <td th:text="${ride.getComments()}"></td>
+
                 </tr>
             </table>
         </div>
