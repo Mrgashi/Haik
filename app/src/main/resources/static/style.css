@@ -118,7 +118,10 @@ p {
     height: auto;
     padding: 1rem;
     overflow: auto;
-
+}
+.form-inline-buttons{
+    display: flex;
+    justify-content: space-around;
 }
 
 .btn {
@@ -137,6 +140,27 @@ p {
 
 
 .btn:hover {
+    cursor: pointer;
+    /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
+    background-image: linear-gradient(#BFA18F, #605148);
+}
+
+.medium-btn {
+    display: inline-block;
+    width: 20%;
+    padding: 10px 15px;
+    border: 0;
+    font-size: large;
+    background-image: linear-gradient(#A1CBD5, #384446);
+    color: #fff;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.medium-btn:hover {
     cursor: pointer;
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
@@ -309,7 +333,7 @@ p {
 
     height: auto;
     color: #1a202c;
-    margin: 12%;
+    margin: 5%;
     padding:  2rem;
     background-color: rgba(130, 159, 163, 0.7);
     border-radius: 10px;
