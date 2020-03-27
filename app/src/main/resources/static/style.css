@@ -65,6 +65,13 @@ body {
     position: relative;
 }
 
+.haik-image8 {
+    background-image: url("images/green-landscape-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
 
 .header {
     color: white;
@@ -75,6 +82,11 @@ body {
     text-align: start;
     font-size: 34px;
     margin-bottom: 5%;
+}
+
+.header a{
+    color: white;
+    text-decoration: none;
 }
 
 h1 {
@@ -128,6 +140,11 @@ a {
     text-align: center;
     text-transform: capitalize;
 }
+#intro{
+    font-size: 18px;
+    text-align: center;
+}
+
 
 .container {
     margin: auto;
@@ -144,6 +161,12 @@ a {
     height: auto;
     padding: 1rem;
     overflow: auto;
+}
+
+.ride-container-two{
+    margin: auto;
+    padding: 1rem;
+
 }
 .form-inline-buttons{
     display: flex;
@@ -167,6 +190,8 @@ a {
 
 .btn:hover {
     cursor: pointer;
+    color: white;
+    text-decoration: none;
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
 }
@@ -211,6 +236,8 @@ medium-btn a{
 
 .smallbtn:hover {
     cursor: pointer;
+    color: white;
+    text-decoration: none;
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
 }
@@ -231,6 +258,8 @@ medium-btn a{
 
 .minibtn:hover {
     cursor: pointer;
+    color: white;
+    text-decoration: none;
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
 }
@@ -296,8 +325,6 @@ medium-btn a{
     border-radius: 5px;
     border: 1px solid #829fa3;
 }
-
-
 
 #welcome-form {
 
@@ -391,6 +418,7 @@ medium-btn a{
     padding: 2rem;
     background: rgba(130, 159, 163, 0.7);
     border-radius: 10px;
+
 }
 
 #ride-container label {
@@ -402,7 +430,6 @@ medium-btn a{
     padding: 10px 0;
 }
 
-
 #ride-container input {
     width: 100%;
     padding: 8px;
@@ -412,6 +439,24 @@ medium-btn a{
     border-radius: 5px;
     border: 1px solid #829fa3;
 }
+#ride-container-two {
+    height: auto;
+    color: #1a202c;
+    padding: 2rem;
+    background: rgba(130, 159, 163, 0.7);
+    border-radius: 10px;
+    width: -moz-fit-content;
+}
+
+#ride-container-driver {
+    height: auto;
+    color: #1a202c;
+    padding: 2rem;
+    background: rgba(130, 159, 163, 0.7);
+    border-radius: 10px;
+    width: -moz-fit-content;
+}
+
 
 .name_input{
 

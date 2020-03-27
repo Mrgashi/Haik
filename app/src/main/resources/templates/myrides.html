@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="style.css">
     <title>Mine || Ha!k</title>
 </head>
-
 <div class="header">
     <header>
         <h1><a href="/">Ha!k</a></h1>
@@ -17,7 +16,7 @@
 </div>
 <body class="haik-image4">
 <div class="form-list-control">
-    <div class="ride-container" id="ride-container">
+    <div class="ride-container-two" id="ride-container-two">
         <h2>Mine Ha!ks</h2>
         <!-- <h2>Mine passasjer-Ha!ks</h2>-->
         <div th:if="${not #lists.isEmpty(myrides)}">
@@ -48,50 +47,15 @@
                     </tr>
                 </div>
                 </tbody>
-            </table>
-        </div>
-    </div>
 
-    <div class="ride-container" id="ride-container-driver">
-        <h2>Mine sjåfør-Ha!ks</h2>
-        <div th:if="${not #lists.isEmpty(driverRides)}">
-            <table class="table table-striped">
-                <thead id="table-header-mydrives" class="ride-table-header">
-                <div class="table-rows">
-                    <tr>
-                        <th scope="row">Dato</th>
-                        <th scope="row">Avreisetid</th>
-                        <th scope="row">Møteplass</th>
-                        <th scope="row">Destinasjon</th>
-                        <th scope="row">Beskrivelse</th>
-                        <th scope="row">Ledige seter</th>
-                        <th scope="row">Passasjerer</th>
-                    </tr>
-                </div>
-                </thead>
-                <tbody>
-                <div>
-                    <tr class="ride-table-container" th:each="ride : ${driverRides}">
-                        <td th:text="${ride.getStartDate()}"></td>
-                        <td th:text="${ride.getStarttime()}"></td>
-                        <td th:text="${ride.getStartlocation()}"></td>
-                        <td th:text="${ride.getDestination()}"></td>
-                        <td th:text="${ride.getComments()}"></td>
-                        <td th:text="${ride.getSeatsavailable()}"></td>
-                        <!-- Passasjer- knappen funker ikke enda-->
-                        <!--                            <td><<a th:href="/passengerlist" class="minibtn">Passasjerer</a></td>-->
-                    </tr>
-                </div>
-                </tbody>
             </table>
-        </div>
-        <div class="all-ride-container">
-            <a href="/rides" class="minibtn">Alle turer</a>
-            <a href="/choosestatus" class="minibtn">Meny</a>
-            <a href="/" class="minibtn">Profil</a>
+            <div class="form-inline-buttons">
+                <a href="/rides" class="medium-btn">Alle turer</a>
+                <a href="/choosestatus" class="medium-btn">Meny</a>
+                <a href="/" class="medium-btn">Profil</a>
+            </div>
         </div>
     </div>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
