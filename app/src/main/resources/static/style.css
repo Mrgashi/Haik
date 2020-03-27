@@ -49,6 +49,23 @@ body {
     position: relative;
 }
 
+.haik-image6 {
+    background-image: url("images/hands-on-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.haik-image7 {
+    background-image: url("images/carmirror-unsplash.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
 .header {
     color: white;
     background-image: linear-gradient(#2A2E43, #08090D);
@@ -100,8 +117,15 @@ p {
     font-family: canada-type-gibson, sans-serif;
     font-size: larger;
 }
-
-
+a {
+    text-decoration: none;
+}
+#invalid-input{
+    color: firebrick;
+    font-size: 18px;
+    text-align: center;
+    text-transform: capitalize;
+}
 
 .container {
     margin: auto;
@@ -157,7 +181,6 @@ p {
     margin: 20px 0;
     text-decoration: none;
     text-align: center;
-
 }
 
 .medium-btn:hover {
