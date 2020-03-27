@@ -121,6 +121,7 @@ a {
     text-decoration: none;
     color: white;
 }
+
 #invalid-input{
     color: firebrick;
     font-size: 18px;
@@ -170,6 +171,7 @@ a {
     background-image: linear-gradient(#BFA18F, #605148);
 }
 
+
 .medium-btn {
     display: inline-block;
     width: 20%;
@@ -183,9 +185,14 @@ a {
     text-decoration: none;
     text-align: center;
 }
-
+medium-btn a{
+    color: white;
+    text-decoration: none;
+}
 .medium-btn:hover {
     cursor: pointer;
+    color: white;
+    text-decoration: none;
     /* text-shadow: 1px 3px 5px rgba(255, 255, 255, 0.509); */
     background-image: linear-gradient(#BFA18F, #605148);
 }
