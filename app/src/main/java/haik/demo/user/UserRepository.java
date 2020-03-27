@@ -17,4 +17,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query(nativeQuery = true, value = "select * from user join ride on ride.createdById = user.user_id and user.user_id")
     Set<User> getNameOfDriver();
 
+    @Query(nativeQuery = true, value = "SELECT user_id FROM user")
+    Set<User> findByUser_id();
 }

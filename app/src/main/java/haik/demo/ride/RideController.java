@@ -53,7 +53,6 @@ public class RideController {
     public String getRides(Model model) {
         Iterable<Ride> allRides = rideRepository.findAll();
         model.addAttribute("rides", allRides);
-
         return "rides";
     }
 
@@ -106,6 +105,7 @@ public class RideController {
             ride.addPassenger(newPassenger);
             ride.setSeatsavailable(ride.getSeatsavailable() - 1);
         }
+
         rideRepository.save(ride);
 
         return "redirect:/myrides";
