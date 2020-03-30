@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 100%;
+    /*height: 100%;*/
 }
 body {
     font-family: canada-type-gibson, sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -171,6 +171,7 @@ a {
 .form-inline-buttons{
     display: flex;
     justify-content: space-around;
+    margin-top: 60px;
 }
 
 .btn {
@@ -270,7 +271,7 @@ medium-btn a{
     height: auto;
     color: #1a202c;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
 
 }
@@ -302,7 +303,7 @@ medium-btn a{
     height: auto;
     color: #1a202c;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
 
 }
@@ -333,7 +334,7 @@ medium-btn a{
     font-weight: normal;
     text-align: center;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
 }
 
@@ -360,7 +361,7 @@ medium-btn a{
     height: auto;
     margin: 10%;
     padding: 2rem;
-    background-color: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 20px;
 
 }
@@ -393,7 +394,7 @@ medium-btn a{
     color: #1a202c;
     margin: 5%;
     padding:  2rem;
-    background-color: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
 
 }
@@ -416,7 +417,7 @@ medium-btn a{
     height: auto;
     color: #1a202c;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
 
 }
@@ -443,17 +444,19 @@ medium-btn a{
     height: auto;
     color: #1a202c;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
+    margin: 0 5%;
     width: -moz-fit-content;
 }
 
-#ride-container-driver {
+#ride-container-two-driver {
     height: auto;
     color: #1a202c;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
+    margin: 0 5%;
     width: -moz-fit-content;
 }
 
@@ -465,7 +468,7 @@ medium-btn a{
     font-weight: normal;
     text-align: center;
     padding: 2rem;
-    background: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 10px;
 }
 
@@ -495,7 +498,7 @@ medium-btn a{
     margin-left: 37%;
     margin-top: 8rem;
     padding: 2rem;
-    background-color: rgba(130, 159, 163, 0.7);
+    background: rgba(130, 159, 163, 0.95);
     border-radius: 20px;
 }
 
