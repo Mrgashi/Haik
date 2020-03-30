@@ -9,6 +9,11 @@ body {
     background-color: #fff;
 }
 
+
+.table{
+
+    color:#fff;
+}
 .haik-image {
     background-image: url("images/haik2.png");
     background-position: center;
@@ -450,6 +455,18 @@ medium-btn a{
     width: -moz-fit-content;
 }
 
+#ride-container-two h2 {
+    text-align: center;
+    font-weight: 500;
+    color: white;
+}
+
+#ride-container-two-driver h2 {
+    text-align: center;
+    font-weight: 500;
+    color: white;
+}
+
 #ride-container-two-driver {
     height: auto;
     color: #1a202c;
@@ -460,6 +477,11 @@ medium-btn a{
     width: -moz-fit-content;
 }
 
+#ride-table-header {
+    color: #fff;
+    font-size: 1em;
+    padding-left: 20px;
+}
 
 .name_input{
 
